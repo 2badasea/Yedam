@@ -12,7 +12,6 @@ public class OperatorExample2 {
 		
 		result = result + 10;
 		result +=10; 
-		
 		result -= 10; // result = result -10; 이라는 뜻. 
 		result *= 10; // 자기자신에 10을 곱한 값을 대입하겠다는 뜻. 
 		result /= 10; // 위와 마찬가지. 
