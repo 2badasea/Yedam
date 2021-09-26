@@ -15,9 +15,11 @@ public class OperatorExample {
 	    result = num1 % 3;
 	    System.out.printf("연산결과: %d\n", result);
 	    
+	    // 비트연산자&: 두 비트 모두 1일 경우에만 연산 결과가 1
 	    result = num1 & num2;
 	    System.out.printf("& 연산결과: %d\n", result);
 	    
+	    //비트연산자| : 두 비트 중 하나만 1일 경우에도 연산결과가 1
 	    result = num1 | num2;
 	    System.out.printf("| 연산결과: %d\n", result);
 	    
@@ -30,6 +32,7 @@ public class OperatorExample {
 	    System.out.printf(">> 연산결과: %d\n", result);
 	    
 	    // &&(and연산자), ||(or연산자), !     왼족의 세 연산자들 다로 공부해보기. 
+	    //boolean 타입의 기본값은 false다. 
 	    boolean b1 = false;
 	    boolean b2 = !b1;  //b2는 true의 값을 갖는다. 
 	    

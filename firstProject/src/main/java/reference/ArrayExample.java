@@ -41,7 +41,7 @@ public class ArrayExample {
 		
 		
 		String[] strAry = { "Hello", "World", "Nice"}; 
-//		strAry = new String[] {1, 2, 3}; 배열 안의 문자형을 넣어주지 않았기에 에러가 뜸.   
+//		strAry = new String[] {1, 2, 3}; 배열 안에 문자형을 넣어주지 않았기에 에러가 뜸.   
 		strAry = new String[] {"Hong", "Kim", "Park"}; /* strAry라는 배열에
 				새로운 값들을 넣어주고 싶을 때, new연산자를 사용하여 새로운 객체를 생성 */ 
 		for(int i=0; i<3; i++) {

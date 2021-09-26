@@ -17,7 +17,7 @@ public class ForExample {
 		cnt += 1;
 		System.out.printf("cnt: %d\n", cnt);
 		
-		System.out.println("======다시=======");
+		System.out.println("====================다시========================");
 
 		cnt = 0;
 		for (int i = 1; i <= 5; i++) { // i++ 은 i의 값을 먼저 사용하고 +1을 해주는 것.
@@ -27,16 +27,17 @@ public class ForExample {
 		
 		System.out.println("반복문 끝.");
 
-		System.out.println("======다시2=======");
+		System.out.println("==========================다시2=================");
 
-		int tempValue = (int) (Math.random() *10) +1;
-		for (int i = 1; i <= 5; i++) { // i++ 은 i의 값을 먼저 사용하고 +1을 해주는 것.
-			tempValue = 0;
-			tempValue += tempValue + (int)(Math.random() *10) +1;
-			System.out.printf("%d번째 값:%d\n",i, tempValue);
-		}
-		System.out.println("sum:" + tempValue);
-		System.out.println("반복문 끝.");
+		int sum = 0;
+		
+		for(int i =1; i<=5; i++) {
+			int randomValue = (int)((Math.random()*10)+1);
+			System.out.println(i + "번째 값: " + randomValue);
+			sum+=randomValue;
+			
+		}System.out.println("총합: "+ sum );
+		System.out.println("반복문 끝");
 		
 		
 		// 0의 값을 준 이유는 tempValue의 값이 계속 증가하기 때문에. 우리가 원하는 건1~10사이값.

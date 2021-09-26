@@ -39,11 +39,12 @@ public class DoWhileExe {
 		//홀수만 합계.
 		//3번 끝.
 		
-		 num = 0;
+		 	num = 0;
 		int sum = 0;
 		do {
 			num++;
 			if(num%2 ==1) {
+				sum+=num;
 				continue;
 			} 
 			
@@ -60,7 +61,25 @@ public class DoWhileExe {
 		// sum 값이 100보다 큰 수가 되었을 때, 그때의 sum값을 출력... 
 		// 몇 번을 실행을 했는지 보여지도록... 
 		// 끝4 
-		
+		int i = 0;
+		   sum = 0;
+		int times = 0;
+		do {
+			i++;
+			sum+=i;
+			times++;
+			if(sum<=100) {
+				continue;
+			} else {
+				System.out.println(sum);
+				break;
+			}
+			
+			
+			
+		}while(true);
+		System.out.println(times);
+		System.out.println("=============4번끝================");
 		
 		
 		

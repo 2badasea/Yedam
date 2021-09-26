@@ -3,7 +3,8 @@ package control;
 public class DoWhileExample {
 
 	public static void main(String[] args) {
-		// Do..while 문법. do while 문법은 잘 쓰이지 않는다.    
+		// Do..while 문법. do while 문법은 잘 쓰이지 않는다.  
+		// continue문이 실행되면 해당 조건식으로 이동한다. 
 		boolean run = false;
 		
 //		while(run) {                         // 불린 값이 false 이므로 실행x
@@ -14,6 +15,7 @@ public class DoWhileExample {
 		
 		do {
 			cnt++;
+			
 			if(cnt % 2 ==1) {
 				continue;   
 			}

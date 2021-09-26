@@ -10,7 +10,7 @@ public class WhileExample {
 			System.out.println(i);
 			i++;
 		}
-		System.out.println("끝======================");
+		System.out.println("===================끝======================");
 
 		// 1~10 짝수만 출력하도록.
 		boolean run = true;
@@ -24,7 +24,7 @@ public class WhileExample {
 			}
 			i++;
 		}
-		System.out.println("=========================");
+		System.out.println("============================================");
 		// 1~10 짝수만 출력하지만, 위랑 약간 다른 방식.
 		boolean run2 = true;
 		i = 1;
@@ -39,7 +39,22 @@ public class WhileExample {
 			i++;
 		}
 
-		System.out.println("=========================");
+		System.out.println("===============================================");
+		//중요한 점. while문의 조건을 boolean 타입으로 했을 경우. 조건문에 true를 매개값으로 넣었다면
+		//반복문을 종료하는 조건에 "(boolean타입의) 변수이름 = false;" 를 넣어준다.
+		//반면 while조건문에 boolean 타입의 변수이름을 매개값으로 받는다면  종료조건문에 "break;"를 삽입한다. 
+		boolean run3 = false;
+		 i = 1;
+		while(true) {
+			if(i%2==0) {
+				System.out.println(i);
+			}
+			if(i>10) {
+				run = false;
+				break;
+			}
+			i++;
+		}
 
 	}
 
