@@ -2,13 +2,13 @@ package co.micol.prj;
 
 public class Calculator {                //public을 접근지시자.  //"Class 정의~" >>>설계를 만든다는 뜻.  
 	private int firstNum;
-	private int secondNum;    			//pritvate을 쓴 건 정보를 감추기 위함. 
+	private int secondNum;    			//private을 쓴 건 정보를 감추기 위함. 
 									    //값을 집어넣는 두 가지 방법. 1. 생성자를 통해서. 
 	public Calculator() {  //기본생성자.   //Calculator( , ); 방법.
 										//2. Setter를 통해 전달하고 Getter를 통해 불러옴.
 	}
 	
-	public Calculator(int n, int m) {    //생성자를 통해 미리 값을 전달 방법. 
+	public Calculator(int n, int m) {    //생성자를 통해 미리 값을 전달하는 방법. 
 		this.firstNum = n; 				//기본생성자와 생성자를 만들어주는 것을 오버라이딩이라 함.	
 		this.secondNum = m;				//메소드의 리턴타입, 매개값, 매개 개수, 매개값의 타입이 다르면 오버라이드
 	}  								 		

@@ -4,6 +4,7 @@ public class CompareMax {   //ÀÌ Å¬·¡½ºÀÇ ¸ñÀû: Àü´Ş¹ŞÀº µÎ ¼ö¿¡¼­ Å« °ªÀ» ¸®ÅÏÇ
 	
 	private int n;
 	private int m;
+	
 	public CompareMax(int n, int m) {          //»ı¼ºÀÚ Á¤ÀÇ. Àü´Ş¹ŞÀ» ¸Å°³°ªÀ» Á¤ÇØÁà¿© Çè. À§¿¡ µÎ n, m°ª. 
 		this.n = n;
 		this.m = m;

@@ -15,7 +15,7 @@ public class MainApp {
 			int n = myCalculator.sum(5); //int  sum(5)의 값을 출력하기 위해 타입과 변수(int n)를 넣어줬다. 
 			System.out.println(n);      //120이 출력된 건 매개값을 하나만 받는 sum메소드는 factorial과정을 거침.
 			
-//			double d = myCalculator.sum(10, 10);  >>>오류가 뜸. int로 인식하니깐. 
+//			double d = myCalculator.sum(10, 10);  //>>>오류가 뜸. 해당 메소드는 리턴값이 없는 void. 자체실행. 
 			double d = myCalculator.sum(10.2 , 10.2);  //>>> 이렇게 수정해야 한다. 
 			System.out.println(d); 
 			
@@ -29,6 +29,7 @@ public class MainApp {
 			int max = compareMax.getMax();         // 앞에 (int max)를 붙인 건 get의 값을 받아서 출력하기 위함.
 			System.out.println("두 수 중에 큰 값은: " + max);    
 			
+			System.out.println("======================두 값에 대한 연산기능.=========================");
 			Calculator calculator = new Calculator();     //기본생성자를 호출. >>> getset설정해야 함. 
 			calculator.setFirstNum(200);
 			calculator.setSecondNum(500);
