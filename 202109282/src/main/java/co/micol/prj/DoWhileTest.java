@@ -44,7 +44,7 @@ private Scanner sc = new Scanner(System.in);
 	}
 	
 	private void doWhileMenu() {
-		boolean b = true;   //보통은 false를 넣고 시작하고, 밑의 b= true;를 넣는다. 그리고 while(!b)로 넣음.
+		boolean b = true;   //보통은 false를 넣고 시작하고, 밑에 'b= true;'를 넣는다. 그리고 'while(!b)'로 넣음.
 		do {					//복습하면서 수정해보고 다시 비교해보기. (boolean값을)
 			mainMenu();
 			int key = sc.nextInt();
@@ -68,7 +68,7 @@ private Scanner sc = new Scanner(System.in);
 		}while(b);
 	}
 	
-	public void run() {    //위의 메소드들이 보이지않기 때문에, 실행하기 위한 메소드 정의
+	public void run() {    //위의 메소드들이 외부에서 보이지않기 때문에, 이들을 실행시키기 위한 메소드 정의
 		doWhileMenu();
 		sc.close();   // 처음 열었던 스캐너를 종료시키기 위함.
 	}
