@@ -22,10 +22,6 @@ public class MethodExample3 {
 		avg = avgArray(intAry2);
 		System.out.println("평균2: " + avg);
 		
-		
-		
-		
-		
 		}
 
 	   //배열을 매개변수. 
