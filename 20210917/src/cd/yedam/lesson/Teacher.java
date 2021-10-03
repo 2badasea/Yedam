@@ -1,21 +1,21 @@
 package cd.yedam.lesson;
 
-// ÀÌ¸§, °ú¸ñ
+// ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½
 
 public class Teacher {
-	// ÇÊµå...
+	// ï¿½Êµï¿½...
 	private String name;
 	private String major;
 
-	// »ý¼ºÀÚ...
-	// Teacher t1 = new Teacher(); -> °ø°£¸¸µå´Â°É ÀÎ½ºÅÏ½º»ý¼º.
-	public Teacher(String name, String major) { // »ý¼ºÀÚ¿¡¼­´Â ¸Þ¼Òµå ¸Å°³°ª ¿ì¼± name Àº ´Ù°°´Ù This¾²¸é ÇÊµåÀÓ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...
+	// Teacher t1 = new Teacher(); -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	public Teacher(String name, String major) { // ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµï¿½ ï¿½Å°ï¿½ï¿½ï¿½ ï¿½ì¼± name ï¿½ï¿½ ï¿½Ù°ï¿½ï¿½ï¿½ Thisï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½
 		this.name = name;
 		this.major = major;
-
+		
 	}
 
-	// ¸Þ¼Òµå
+	// ï¿½Þ¼Òµï¿½
 	public void setName(String name) {
 		this.name = name;
 	}

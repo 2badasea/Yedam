@@ -8,7 +8,7 @@ public class App {
 	private static int[] a = { 7, 9, 3, 6, 1, 4, 2, 5, 8, 10 };
 
 	public static void main(String[] args) {
-		System.out.println("Hello World!");
+		System.out.println("Hello Wod!");
 		selectionSort(); // 여기서 오름차순 sort를 진행하고 밑으로 출력된다.
 		System.out.println(a.toString()); // a의 메모리 주소를 보여준다.
 		for (int i = 0; i < a.length; i++) {
