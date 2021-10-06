@@ -8,7 +8,7 @@ public class MyPrint implements RemoteController, Pencil {
 	//그리고 해당 주석들은 MyPrint 클래스의 맨 밑의 '나만의 메소드'부분도 연계됨. 같이 볼 것. 
 //	private Pencil pencil;
 //	public MyPrint(Pencil pencil) {
-//		this.pencil = pencil;
+//		this.pencil = pencil; 
 //	}
 	
 
