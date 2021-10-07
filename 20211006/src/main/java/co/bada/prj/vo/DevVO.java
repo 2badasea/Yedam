@@ -54,6 +54,9 @@ public class DevVO {		//VO객체, DTO 객체(변수와 getset으로만 구성되
 		System.out.println("나이: " + age + " ");
 		return null;    
 	}
+	// 또 한 가지 중요한 사실 >>> toString()메서드의 리턴타입을 String으로 한 것은 ,
+	//애초에 해당 타입의 값을 호출하려는 게 아니라, 정보를 출력하기 위함이다. 
+	// int 타입에서는 null값이 존재하지 않지만, String 타입에서는 null값으로 선언할 수 있기 때문. 
 	
 	
 }

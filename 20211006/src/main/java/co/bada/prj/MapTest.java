@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MapTest {
+	
 	private Map<String, String> map = new HashMap<String, String>(); 
 			//key, value타입.  >>> 똑같아야 한다. 좌변우변의 매개타입. 
 	
