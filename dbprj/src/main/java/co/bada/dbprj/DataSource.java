@@ -16,7 +16,9 @@ public class DataSource {
 	private String user;	//DB에 접속할 계정.
 	private String password; 	//DB 접속계정의 패스워드
 	
-	public Connection conn;  //java에서 DBMS 연결 객체.  connection은 자바에서 db에 연결하는 인터페이스다. //public만 상속됨. 상속하기 위해. 
+	public Connection conn;  //java에서 DBMS 연결 객체.  
+							//connection은 자바에서 db에 연결하는 인터페이스다. 
+							//public만 상속됨. 상속하기 위해. 
 	
 	public DataSource() {
 		getDbproperties();	//외부 properties 파일을 읽어서 내부 변수에 담음. 
