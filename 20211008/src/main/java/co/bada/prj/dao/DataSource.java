@@ -7,7 +7,9 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DataSource {
-	private static DataSource dataSource = new DataSource();      //싱글톤으로 만든다(인스턴스가 오직 1개만 생성되야 하는 경우에 사용하는 패턴)
+	
+	private static DataSource dataSource = new DataSource();   
+	//싱글톤으로 만든다(인스턴스가 오직 1개만 생성되야 하는 경우에 사용하는 패턴)
 	private Connection conn;
 	private String driver;
 	private String url;
@@ -25,12 +27,12 @@ public class DataSource {
 	
 	
 	
-	private void dbconfig() {		//외부 properties  	<<properties클래스 설명>> Hashtalbe의 하위 클래스. 
-									//Hashtable을 상속받았기 때문에 Map의 속성, 즉 Key와 Value를 갖는다. 
-									//key를 주면 value값을 반환하는 기능을 가진다. 
-									//"Key = Value" 형태로 된 "파일이름.properties" 파일 또는 Xml 파일
-									//파일을 직접 여는 클래스가 아니므로 FileReader 객체를 매개변수로 받음. 
-									//load() 메소드를 통해 파일 정보를 넣어줌 
+	private void dbconfig() {	//외부 properties  	<<properties클래스 설명>> Hashtalbe의 하위 클래스. 
+								//Hashtable을 상속받았기 때문에 Map의 속성, 즉 Key와 Value를 갖는다. 
+								//key를 주면 value값을 반환하는 기능을 가진다. 
+								//"Key = Value" 형태로 된 "파일이름.properties" 파일 또는 Xml 파일
+								//파일을 직접 여는 클래스가 아니므로 FileReader 객체를 매개변수로 받음. 
+								//load() 메소드를 통해 파일 정보를 넣어줌 
 		Properties properties = new Properties();   
 		String resource = getClass().getResource("/db.properties").getPath(); // '/' << 절대경로. 
 		try {

@@ -11,8 +11,8 @@ import co.bada.prj.dao.DataSource;
 import co.bada.prj.service.MemberService;
 import co.bada.prj.service.MemberVO;
 
-public class MemberServiceImpl implements MemberService {     //밑의 4개 객체는 db와 연동하기 위한 필수 객체들. 
-	
+public class MemberServiceImpl implements MemberService {    
+	//밑의 4개 객체는 db와 연동하기 위한 필수 객체들. 
 	private DataSource dao = DataSource.getInstance();    //db에 연결하기 위해 dao를 만든다.  
 	private Connection conn;	//연결할 수 있는 커넥션 객체. connection은 상위클래스. 
 	private PreparedStatement psmt;  //sql문을 전달. 실행, 결과받기. 커넥션을 통해 결과를 받을수 있는 객체. 상위클래스. 
@@ -20,15 +20,17 @@ public class MemberServiceImpl implements MemberService {     //밑의 4개 객�
 	//select문을 통해 결과를 받을 수 있는
 	
 	@Override
-	public List<MemberVO> selectMemberList() {		//														2. 다음 행을 읽는 게 next(). 읽늘 내용이 존해마녀 그 값을 리턴해준다. 	
-		List<MemberVO> list = new ArrayList<MemberVO>();														//더이상 리턴해줄 게 없으면 eof을 리턴해준다. eof는 false값을 가진다. 
+	public List<MemberVO> selectMemberList() {		//2. 다음 행을 읽는 게 next(). 읽늘 내용이 존해마녀 그 값을 리턴해준다. 	
+		List<MemberVO> list = new ArrayList<MemberVO>(); //더이상 리턴해줄 게 없으면 eof을 리턴해준다. eof는 false값을 가진다. 
 		MemberVO vo;
 		String sql = "select * from member";  //sql구문 전달. 
 		try {
-			conn = dao.getConnection();		//생성된 커넥션 객체를 통해 preparedstatement객체생성(이 때 db에 매개값으로 sql전달), sql을 실행시켜달라는 executequery(). 전달이 되면 
-			psmt = conn.prepareStatement(sql);																		//레코드셋 형태로 돌려주는데, 자바에선 이것을 1.resultset객체를 생성해서 받는다. 
-			rs = psmt.executeQuery();   // sql문 실행 후 결과를 받음. select는 executeQuery이다. 레코드셋 모양의 결과를 받게됨 rs가. 
-			while(rs.next()) {			// 
+			conn = dao.getConnection();		//생성된 커넥션 객체를 통해 preparedstatement객체생성(이 때 db에 매개값으로 sql전달), 
+											//sql을 실행시켜달라는 executequery(). 전달이 되면 
+											//레코드셋 형태로 돌려주는데, 자바에선 이것을 1.resultset객체를 생성해서 받는다.
+			psmt = conn.prepareStatement(sql);																		
+			rs = psmt.executeQuery(); // sql문 실행 후 결과를 받음. select는 executeQuery이다. 레코드셋 모양의 결과를 받게됨 rs가. 
+			while(rs.next()) {			
 				vo = new MemberVO(); //여기서 값을 읽고 담아서 전달해준다. 일단 초기화. 밑을 차례대로 담아준다. 
 				vo.setId(rs.getString("id"));  
 				vo.setName(rs.getString("name"));

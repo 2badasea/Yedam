@@ -77,7 +77,7 @@ public class MainMenu {
 			vo.setId(sc.nextLine());
 			int n =memberService.updateMember(vo);
 			if(n !=0) {
-				vo.setPassword(sc.next);
+				vo.setPassword(sc.nextLine());
 			}
 			sc.nextLine();
 			
