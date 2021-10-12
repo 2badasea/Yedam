@@ -10,13 +10,12 @@ public class MemberLogin implements Command {
 	public void execute() {
 		MemberService memberService = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
-		vo.setId("bada");
+		vo.setId("micol");
 		vo.setPassword("1234");
-		System.out.println(vo.getId() + "  :  " + vo.getPassword());
-		
+		System.out.println(vo.getId() + " : " + vo.getPassword());
 		vo = memberService.loginCheck(vo);
-		System.out.println(vo.getName() + "  :  " + vo.getAuthor());
-		System.out.println(vo.getId() + "  :  " + vo.getPassword());
+		System.out.println(vo.getName() + " : " + vo.getAuthor());
+		System.out.println(vo.getId() + " : " + vo.getPassword());
 	}
 
 }

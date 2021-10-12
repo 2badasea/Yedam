@@ -4,11 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-	<properties resource="db.properties"></properties>
+	<properties resource="db.properties" />
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
-			<dataSource type="POOLED"> 
+			<dataSource type="POOLED">
 				<property name="driver" value="${driver}" />
 				<property name="url" value="${url}" />
 				<property name="username" value="${user}" />
@@ -17,7 +17,8 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="co/bada/prj/board/serviceImpl/board-map.xml" />		
-		<mapper resource="co/bada/prj/member/serviceImpl/member-map.xml" />  
+		<mapper resource="co/bada/prj/board/serviceImpl/board-map.xml" />
+		<mapper resource="co/bada/prj/member/serviceImpl/member-map.xml" />
+				<!-- board table (예를 든 거임.)-->
 	</mappers>
 </configuration>

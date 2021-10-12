@@ -19,87 +19,86 @@ import co.bada.prj.member.serviceImpl.MemberUpdate;
 
 public class Menu {
 	private Scanner sc = new Scanner(System.in);
-	private Map<String, Command> map = new HashMap<String, Command>();
+	private Map<String,Command> map = new HashMap<String, Command>();
 	
-	public Menu() {
+	public Menu() {	// 생성될때 명령 실행그룹 map 구조 만들기
 		map.put("boardList", new BoardList());
-		map.put("boardSelect" , new BoardSelect());
-		map.put("boardInsert" , new BoardInsert());
-		map.put("boardUpdate" , new BoardUpdate());
-		map.put("boardDelete" , new BoardDelete());
+		map.put("boardSelect", new BoardSelect());
+		map.put("boardInsert", new BoardInsert());
+		map.put("boardUpdate", new BoardUpdate());
+		map.put("boardDelete", new BoardDelete());
 		
-		map.put("memberList" , new MemberList());
-		map.put("memberSelect" , new MemberSelect());
-		map.put("memberInsert" , new MemberInsert());
-		map.put("memberUpdate" , new MemberUpdate());
-		map.put("memberDelete" , new MemberDelete());
-		
-		map.put("memberLogin" , new MemberLogin());
+		map.put("memberList", new MemberList());
+		map.put("memberSelect", new MemberSelect());
+		map.put("memberInsert", new MemberInsert());
+		map.put("memberUpdate", new MemberUpdate());
+		map.put("memberUpdate", new MemberUpdate());
+		map.put("memberDelete", new MemberDelete());
+		map.put("memberLogin", new MemberLogin());
 	}
-				
-		
 
 	private void mainTitle() {
-		System.out.println("===========================");
-		System.out.println("=======1. 멤버 관리=========");
-		System.out.println("=======2. 게시글 관리========");
-		System.out.println("=======3. 로 그 인 ========");
-		System.out.println("=======4. 종    료==========");
-		System.out.println("===========================");
+		System.out.println("==================");
+		System.out.println("====1. 멤버 관리====");
+		System.out.println("====2. 공지 관리====");
+		System.out.println("====3. 로그인====");
+		System.out.println("==== 종    료====");
+		System.out.println("==================");
 		System.out.println("원하는 작업을 선택하세요.");
-
 	}
 
 	private void memberTitle() {
-		System.out.println("===========================");
-		System.out.println("=======1. 회원목록 조회=======");
-		System.out.println("=======2. 회원정보 조회=======");
-		System.out.println("=======3. 회원정보 등록========");
-		System.out.println("=======4. 회원정보 수정========");
-		System.out.println("=======5. 회원정보 삭제========");
-		System.out.println("=======6. 회원 메뉴 가기=======");
+		System.out.println("======================");
+		System.out.println("====1. 회원 목록 조회====");
+		System.out.println("====2. 회원 정보 조회====");
+		System.out.println("====3. 회원 정보 등록====");
+		System.out.println("====4. 회원 정보 수정====");
+		System.out.println("====5. 회원 정보 삭제====");
+		System.out.println("====6. 메인 메뉴 가기====");
+		System.out.println("======================");
+		System.out.println("원하는 작업을 선택하세요.");
+
+	}
+
+	private void boardTitle() {
+		System.out.println("======================");
+		System.out.println("====1. 공지 사항 목록====");
+		System.out.println("====2. 공지 사항 조회====");
+		System.out.println("====3. 공지 사항 등록====");
+		System.out.println("====4. 공지 사항 수정====");
+		System.out.println("====5. 공지 사항 삭제====");
+		System.out.println("====6. 메인 메뉴 가기====");
+		System.out.println("======================");
 		System.out.println("원하는 작업을 선택하세요.");
 	}
 
-	public void boardTitle() {
-		System.out.println("===========================");
-		System.out.println("=======1. 공지사항 목록=======");
-		System.out.println("=======2. 공지사항 조회=======");
-		System.out.println("=======3. 공지사항 등록========");
-		System.out.println("=======4. 공지사항 수정========");
-		System.out.println("=======5. 공지사항 삭제========");
-		System.out.println("=======6. 메인 메뉴 가기=======");
-		System.out.println("===========================");
-		System.out.println("원하는 작업을 선택하세요.");
-	}
-
-	public void menu() { // 주메뉴 선택
+	private void menu() { // 주메뉴 선택
 		while (true) {
 			mainTitle();
-			int JobNo = sc.nextInt();
-			if (JobNo == 1) {
-				memberManagement();
+			int jobNo = sc.nextInt();
+			if (jobNo == 1) {
+				memberMangement();
 				continue;
-			} else if (JobNo == 2) {
-				boardManagement();
-				break;
-			} 
-			else if (JobNo == 3) {
+			} else if (jobNo == 2) {
+				boardMangement();
+				continue;
+			}else if (jobNo == 3) {
 				executeRun("memberLogin");
-				break;
-			}else {
-				System.out.println("Good bye~~~");
+				continue;
+			} 
+			else {
+				System.out.println("Gooy bye!!!!");
 				return;
 			}
 		}
 	}
 
-	private void boardManagement() {
+	private void boardMangement() {
 		boolean b = false;
 		do {
 			boardTitle();
 			int key = sc.nextInt();
-			switch(key) {
+			switch (key) {
 			case 1:
 				executeRun("boardList");
 				break;
@@ -116,21 +115,20 @@ public class Menu {
 				executeRun("boardDelete");
 				break;
 			case 6:
-				b = true;
+				b= true;
 				break;
-			} 
-		}while(!b);
 
-	
-
+			}
+		} while (!b);
 	}
 
-	private void memberManagement() {
+	private void memberMangement() {
 		boolean b = false;
 		do {
 			memberTitle();
 			int key = sc.nextInt();
-			switch(key) {
+			switch (key) {
+
 			case 1:
 				executeRun("memberList");
 				break;
@@ -149,20 +147,20 @@ public class Menu {
 			case 6:
 				b = true;
 				break;
-			} 
-		}while(!b);
+
+			}
+		} while (!b);
+
 	}
-		
-		
+
 	private void executeRun(String string) {
+		//실행할 명령을 구현한다.
 		Command command = map.get(string);
 		command.execute();
+		
 	}
-	
 	public void run() {
 		menu();
 		sc.close();
 	}
 }
-
-

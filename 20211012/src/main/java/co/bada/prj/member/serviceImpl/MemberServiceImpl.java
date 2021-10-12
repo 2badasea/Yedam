@@ -2,6 +2,7 @@ package co.bada.prj.member.serviceImpl;
 
 import java.util.List;
 
+
 import org.apache.ibatis.session.SqlSession;
 
 import co.bada.prj.comm.DataSource;
@@ -10,16 +11,19 @@ import co.bada.prj.member.service.MemberService;
 import co.bada.prj.member.service.MemberVO;
 
 public class MemberServiceImpl implements MemberService {
+//	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
-	private MemberMapper map = sqlSession.getMapper(MemberMapper.class);
-	
+	private MemberMapper map =sqlSession.getMapper(MemberMapper.class);
+
 	@Override
-	public List<MemberVO> memberList() {
-		return map.memberList();
+	public List<MemberVO> memberSelectList() {
+		// TODO Auto-generated method stub
+		return map.memberSelectList();
 	}
 
 	@Override
 	public MemberVO memberSelect(MemberVO vo) {
+		// TODO Auto-generated method stub
 		return map.memberSelect(vo);
 	}
 

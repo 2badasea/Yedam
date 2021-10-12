@@ -12,13 +12,21 @@
 		select * from board where bid = #{bId}    
 	</select>
 	
-	<insert id = "boardInsert" parameterType="co.bada.prj.board.service.BoardVO">
+	<!--  <insert id = "boardInsert" parameterType="co.bada.prj.board.service.BoardVO">
 		insert into board 
 		values(b_squ.nextval, #{bWriter}, sysdate, #{bTitle}, #{bContents}, 0)
 	</insert>
+	-->
+	
+	<insert id="boardInsert" parameterType="co.bada.prj.board.service.BoardVO">
+      insert into board
+      values(b_squ.nextval, #{bWriter}, sysdate, #{bTitle}, #{bContents}, 0)
+      
+   </insert>
+	
 	
 	<update id = "boardUpdate" parameterType="co.bada.prj.board.service.BoardVO">
-		update board set bContents = #{bContents} where bid = #{bId}
+		update board set bcontents = #{bContents} where bid = #{bId}
 	</update>
 	
 	<delete id = "boardDelete" parameterType="co.bada.prj.board.service.BoardVO">

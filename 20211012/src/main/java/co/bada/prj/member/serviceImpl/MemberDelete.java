@@ -1,22 +1,29 @@
 package co.bada.prj.member.serviceImpl;
 
+import java.util.Scanner;
+
 import co.bada.prj.comm.Command;
-import co.bada.prj.comm.UseScanner;
+import co.bada.prj.member.service.MemberService;
 import co.bada.prj.member.service.MemberVO;
 
 public class MemberDelete implements Command {
+private Scanner scn = new Scanner(System.in);
 
 	@Override
-	public void execute() {
+		public void execute() {
+		MemberService dao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
-		String id = UseScanner.readString("삭제할 id를 입력해주세요");
-		vo.setId(id);
-		int nVO = memberService.memberDelete(vo);
-		if(nVO != 0) {
+		System.out.println("삭제할 아이디 입력");
+		vo.setId(scn.nextLine());
+		int n = dao.memberDelete(vo);
+		if(n!=0) {
 			System.out.println("삭제 되었습니다.");
 		}else {
-			System.out.println("삭제중 오류가 발생하여 중단합니다.");
+			System.out.println("실패");
 		}
+		
+		// TODO Auto-generated method stub
+
 	}
 
 }

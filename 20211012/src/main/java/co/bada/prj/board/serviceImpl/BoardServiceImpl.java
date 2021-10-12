@@ -10,9 +10,9 @@ import co.bada.prj.board.service.BoardVO;
 import co.bada.prj.comm.DataSource;
 
 public class BoardServiceImpl implements BoardService {
-	private SqlSession sqlSession = DataSource.getInstance().openSession(true); //true를 넣어줘야 db에 커밋이 돼서 출력된다(auto commit)
+	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	private BoardMapper map = sqlSession.getMapper(BoardMapper.class);
-	
+
 	@Override
 	public List<BoardVO> boardSelectList() {
 		// TODO Auto-generated method stub
@@ -42,7 +42,10 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int boardUpdate(BoardVO vo) {
 		// TODO Auto-generated method stub
-		return map.boardUpdate(vo);
+		return map.boardUpdate(vo);	// 내가가지고있는 메소드명을 그대로 사용가능
+	}
+	private void hitUpdate(int id) {
+		
 	}
 
 }

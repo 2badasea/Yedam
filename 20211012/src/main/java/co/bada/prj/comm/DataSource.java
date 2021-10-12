@@ -12,7 +12,7 @@ public class DataSource {
 	private DataSource() {}  //외부에서 생성하지 못 하도록 초기화. 
 	
 	public static SqlSessionFactory getInstance() {	//DataBase 연결된다. connection pool 기반으로. 
-		String resource = "mybatis-config.xml";	//SqlSessionFactoryBuilder는 XML설정파일에서 SqlSessionFactory인스턴스를 빌드할 수 있다.
+		String resource = "mybatis-config.xml";
 		try{ 
 			InputStream inputStream = Resources.getResourceAsStream(resource);
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
