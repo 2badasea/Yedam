@@ -8,7 +8,9 @@ import lombok.Setter;
 @Setter
 @Getter
 
-public class BoardVO {
+
+
+public class BoardVO { //필드들의 데이터타입과 변수명은 sql테이블을 참조한다. 그리고 일치해야 한다. 
 	private int bId;
 	private String bWriter;
 	private Date bWriteDate;  //import java.sql
@@ -16,3 +18,9 @@ public class BoardVO {
 	private String bContents;
 	private int bHit;
 }
+
+/*
+ * DTO(Data Transfer Object)의 약자로, 계층간 데이터 교환을 위한 자바빈즈를 뜻한다. 
+ * 또한 DTO는 VO(value object)와 용어를 혼용해서 많이 사용하는데, VO는 읽기만 가능한 readonly 속성을 가져
+ * DTO와의 차이점이 존재한다. mybatis에서는 주로 vo라고 불리며 많이 사용한다.
+ */

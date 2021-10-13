@@ -4,21 +4,23 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-	<properties resource="db.properties" />
+	<properties resource="db.properties" />     <!-- 1. properties설정은 외부에 옮길 수도 있다. DB접속정보를 설정한다. 'Resource'유틸클래스를 이용하여 경로 입력-->
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
-			<dataSource type="POOLED">
-				<property name="driver" value="${driver}" />
+			<dataSource type="POOLED">		<!-- dataaSource엘리먼트는 표준 jdbc DataSource인터페이스를 사용하여 jdbc connection객체의 소스를 설정한다.  
+												'POOLED'는 DataSource에 풀링이 적용된 jdbc 커넥션을 위한 구현체. 매번 connection객체를 초기화하는 것을 피하게 해줌.-->
+				<property name="driver" value="${driver}" />  <!-- 왼쪽은 db접속정보. 오른쪽은 대응시킬 mapper??? 확인후 다시 넣을 것.  -->
 				<property name="url" value="${url}" />
 				<property name="username" value="${user}" />
 				<property name="password" value="${password}" />
 			</dataSource>
 		</environment>
 	</environments>
-	<mappers>
+	<mappers>  <!-- 매핑된 SQL구문을 정의할 차례. 여기서는 클래스패스의 상대경로의 리소스를 사용하여 resource를 사용하였다. 가리키는 경로는 우리가 설정한 mapper xml파일이다.-->
 		<mapper resource="co/bada/prj/board/serviceImpl/board-map.xml" />
 		<mapper resource="co/bada/prj/member/serviceImpl/member-map.xml" />
 				<!-- board table (예를 든 거임.)-->
 	</mappers>
 </configuration>
+ 

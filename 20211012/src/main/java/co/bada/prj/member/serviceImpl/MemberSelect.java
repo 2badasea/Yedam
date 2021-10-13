@@ -2,7 +2,7 @@ package co.bada.prj.member.serviceImpl;
 
 import java.util.Scanner;
 
-import co.bada.prj.board.service.BoardVO;
+
 import co.bada.prj.comm.Command;
 import co.bada.prj.member.service.MemberService;
 import co.bada.prj.member.service.MemberVO;
