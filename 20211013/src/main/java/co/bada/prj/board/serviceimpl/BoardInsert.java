@@ -12,7 +12,7 @@ public class BoardInsert implements Command {
 		BoardService dao = new BoardServiceImpl();
 		BoardVO vo = new BoardVO();
 		System.out.println("작성자를 입력하세요");
-		vo.setBWriter(GB.sc.nextLine());
+		vo.setBWriter(GB.sc.nextLine());  GB.sc.nextLine();
 		System.out.println("제목을 입력하세요");
 		vo.setBTitle(GB.sc.nextLine());
 		System.out.println("내용을 입력하세요");

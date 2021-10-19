@@ -34,13 +34,14 @@ public class DataSource {
 								//파일을 직접 여는 클래스가 아니므로 FileReader 객체를 매개변수로 받음. 
 								//load() 메소드를 통해 파일 정보를 넣어줌 
 		Properties properties = new Properties();   
+		
 		String resource = getClass().getResource("/db.properties").getPath(); // '/' << 절대경로. 
 		try {
 			properties.load(new FileReader(resource));
-			driver = properties.getProperty("driver");
-			url = properties.getProperty("url");
-			user = properties.getProperty("user");
-			password = properties.getProperty("password");
+			driver = properties.getProperty("driver");   //괄호안은 key값 
+			url = properties.getProperty("url");   // 호출되는 값 "jdbc:oracle:thin:@localhost:1521:xe" 
+			user = properties.getProperty("user"); // " bada"값이 호출되어 'uesr'변수에 저장. 
+			password = properties.getProperty("password");  // "1234"가 호출되어 password에 저장.
 		}catch(Exception e ){
 			e.printStackTrace();
 		}
@@ -50,6 +51,7 @@ public class DataSource {
 		try {
 			Class.forName(driver);     // ojdbc 연결용.(사용할 드라이버를 로드시키는 것)
 			conn = DriverManager.getConnection(url, user, password);
+			// DriverManager클래스는 Connection인터페이스의 구현 객체를 생성하는 데 getConnection()메소드를 사용한다. 
 			System.out.println("DB 연결 성공"); 
 		}catch(ClassNotFoundException | SQLException e ) {
 			e.printStackTrace();

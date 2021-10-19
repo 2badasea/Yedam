@@ -17,27 +17,27 @@ public class MainApp {
 		List<MemberVO> members = new ArrayList<MemberVO>();
 		members = memberService.selectMemberList(); 
 		
-		MemberVO vo = new MemberVO();
-		vo.setId("kim");
-		vo.setPassword("4567");
-		vo.setName("김치국");
-		vo.setTel(null);
-		vo.setAddress(null);
-		vo.setAuthor("USER");
-		int n = memberService.insertMember(vo);   //"입력해주세요" 
-		if(n !=0) {
-			System.out.println("잘 입력되었습니다. ");
-		}else {
-			System.out.println("입력이 실패했습니다. ");
-		}
-		 System.out.println("======================");
-	      members = memberService.selectMemberList();
-
-		
-		
-		for(MemberVO member : members){
-			member.toString();
-		}
+//		MemberVO vo = new MemberVO();
+//		vo.setId("kim");
+//		vo.setPassword("4567");
+//		vo.setName("김치국");
+//		vo.setTel(null);
+//		vo.setAddress(null);
+//		vo.setAuthor("USER");
+//		int n = memberService.insertMember(vo);   //"입력해주세요" 
+//		if(n !=0) {
+//			System.out.println("잘 입력되었습니다. ");
+//		}else {
+//			System.out.println("입력이 실패했습니다. ");
+//		}
+//		 System.out.println("======================");
+//	      members = memberService.selectMemberList();
+//
+//		
+//		
+//		for(MemberVO member : members){
+//			member.toString();
+//		}
 		
 		
 //		System.out.println("==============hello bada================");  //run을 하면 Arraylist타입처럼 밑으로 출력되어 있다. 

@@ -79,7 +79,9 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int insertMember(MemberVO vo) {
 		//조회하기 위해서 일단 sql설정. 
-		String sql = "insert into member values(?,?,?,?,?,?)";
+		String sql = "insert into member"
+				+"(id, name, password, tel, address, author) "
+				+ "values(?,?,?,?,?,?)";
 		int n = 0;
 		try {
 			conn = dao.getConnection();
@@ -115,7 +117,6 @@ public class MemberServiceImpl implements MemberService {
 			psmt.setString(3, vo.getTel());
 			psmt.setString(4, vo.getAddress());
 			psmt.setString(5, vo.getAuthor());
-			psmt.setString(6, vo.getId());
 			n = psmt.executeUpdate();   
 			
 		}catch(SQLException e) {

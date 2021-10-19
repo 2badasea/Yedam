@@ -23,8 +23,10 @@ public class MemberInsert implements Command {
 		vo.setTel(scn.nextLine());
 		System.out.println("주소를 입력하세요");
 		vo.setAddress(scn.nextLine());
+		System.out.println("권한을 입력하세요 (USER)");
+		vo.setAuthor(scn.nextLine());
 		
-		int n = dao.memberInsert(vo);   //성공이 되었으면 n의 값은 1이다. 
+		int n = dao.memberInsert(vo);   //성공했으면 n의 값은 1이다. 
 		if(n != 0) {
 			System.out.println("정상적으로 등록되었습니다.");
 		} else {

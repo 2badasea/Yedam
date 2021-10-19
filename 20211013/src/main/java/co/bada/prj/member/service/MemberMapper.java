@@ -16,5 +16,4 @@ public interface MemberMapper {
 	
 	int memberDelete(MemberVO vo);
 	
-	MemberVO loginCheck(MemberVO vo);
 }

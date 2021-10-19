@@ -13,5 +13,4 @@ public interface MemberService {
 	
 	int memberDelete(MemberVO vo);
 	
-	MemberVO loginCheck(MemberVO vo);
 }

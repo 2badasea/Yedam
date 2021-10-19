@@ -44,10 +44,4 @@ public class MemberServiceImpl implements MemberService {
 		return map.memberDelete(vo);
 	}
 
-	@Override
-	public MemberVO loginCheck(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return map.loginCheck(vo);
-	}
-
 }
