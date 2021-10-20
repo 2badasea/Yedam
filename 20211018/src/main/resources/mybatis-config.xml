@@ -22,5 +22,7 @@
 	</environments>
 	<mappers> <!-- 매핑된 SQL구문을 정의할 차례. 여기서는 클래스패스의 상대경로의 리소스를 사용하여 resource를 사용하였다. 가리키는 경로는 우리가 설정한 mapper xml파일이다.-->
 		<mapper resource="co/bada/prj/member/serviceimpl/member-map.xml"/>  <!-- mapper는 계속 추가될 수 있다.  -->
+		<mapper resource="co/bada/prj/board/serviceimpl/board-map.xml"/>
+		<mapper resource="co/bada/prj/book/serviceimpl/book-map.xml"/>
 	</mappers>
 </configuration>

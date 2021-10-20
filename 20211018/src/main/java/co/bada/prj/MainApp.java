@@ -1,10 +1,20 @@
+/*
+ * 제출용
+ */
 package co.bada.prj;
 
-public class MainApp {
+import co.bada.prj.comm.Login;
+import co.bada.prj.comm.Menu;
 
+public class MainApp {
+	
 	public static void main(String[] args) {
-		System.out.println("이바다 힘내라");
 		
+		Login login = new Login();
+		Menu menu = new Menu();
+		login.run();
+		menu.run();
+
 	}
 
 }

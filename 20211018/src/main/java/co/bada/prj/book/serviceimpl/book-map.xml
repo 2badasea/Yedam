@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.bada.prj.book.BookMapper">
+
+	<select id="bookSelectList"
+		resultType="co.bada.prj.book.BookVO">
+		select * from bookcomment
+	</select>
+	
+	
+	<select id="bookSelect"
+		resultType="co.bada.prj.book.BookVO">
+		select * from bookcomment where cwriter = #{cWriter}
+	</select>
+	
+	
+	<insert id ="bookInsert"
+		parameterType="co.bada.prj.book.BookVO">
+		insert into bookcomment
+		values(bb_squ.nextval, #{cWriter}, sysdate, #{cTitle}, #{cContents})
+	</insert>
+	
+	<update id="bookUpdate"
+		parameterType="co.bada.prj.book.BookVO">
+		update bookcomment set
+		cwriter = #{cWriter}
+		ctitle = #{cTitle}
+		ccontents = #{cContents} 
+	</update>
+	
+	<delete id="bookDelete"
+		parameterType="co.bada.prj.book.BookVO">
+		delete from bookcomment where cid = #{cId}
+	</delete>
+	
+
+</mapper>

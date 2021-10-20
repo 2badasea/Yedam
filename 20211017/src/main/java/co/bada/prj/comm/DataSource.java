@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 public class DataSource {	//DAO(Data Access Object)
 	private static SqlSessionFactory sqlSessionFactory; 
 	//mybatis를 사용하기 위해서 sqlsessionFactory인터페이스를 이용 
-	private DataSource() {}  
+	private DataSource() {}  	
 	//외부에서 생성하지 못 하도록 초기화. 
 	
 	

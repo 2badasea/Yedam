@@ -1,4 +1,4 @@
-package co.micol.prj.board.service;
+package co.bada.prj.board;
 
 import java.util.List;
 
