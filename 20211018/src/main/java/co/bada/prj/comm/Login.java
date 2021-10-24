@@ -22,16 +22,20 @@ public class Login {
 			System.out.println("패스워드를 입력하세요");
 			member.setPassword(scn.nextLine());
 			
-			member = memberDao.memberSelect(member);
+			member = memberDao.loginCheck(member);
 			
-			if(member !=null) {
+			if(member !=null)	{
 				GB.ID = member.getId();
+				GB.PASSWORD = member.getPassword();
 				GB.NAME = member.getName();
 				GB.AUTHOR = member.getAuthor();
+				System.out.println("로그인 성공!!");
 				b = true;
 			} else {
 				System.out.println("!!!사용자 아이디 또는 패스워드가 틀렸다.");
 				scn.nextLine();
+				return;
+				
 			}
 	
 		} while(!b);

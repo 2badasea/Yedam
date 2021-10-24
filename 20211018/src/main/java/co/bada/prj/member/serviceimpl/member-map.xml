@@ -11,12 +11,12 @@
 	<select id="memberSelect"
 		resultType="co.bada.prj.member.MemberVO">
 		select * from member 	
-		where id = #{id}  
+		where id = #{id} 
 	</select>
 	
 	<insert id = "memberInsert">
-		insert into member (id, name, password, tel, address, author)
-		values(#{id},#{name},#{password},#{tel},#{address},#{author})
+		insert into member (id, name, password, tel, address)
+		values(#{id},#{name},#{password},#{tel},#{address})
 	</insert>
 	
 	
@@ -25,7 +25,8 @@
 		name = #{name},
 		password = #{password},
 		tel = #{tel},
-		address = #{address}
+		address = #{address},
+		author = #{author}
 		where id = #{id}
 		
 	</update>
@@ -33,7 +34,16 @@
 	
 	<delete id = "memberDelete">
 		delete from member where id = #{id}
-	</delete>
+	</delete>   
+	
+	
+	<select id="loginCheck"
+	resultType="co.bada.prj.member.MemberVO">
+	select * from member
+	where id = #{id} AND password = #{password}
+	</select>
+	
+	
 	
 	
 </mapper>
