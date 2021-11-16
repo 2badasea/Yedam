@@ -29,6 +29,7 @@
 			<scope>provided</scope>
 		</dependency>
 
+<<<<<<< HEAD
 
 
 		<dependency>
@@ -49,6 +50,26 @@
 		</resources>
 		
 		<finalName>Second</finalName>
+=======
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>
+					src/main/resources
+				</directory>
+			</resource>
+		</resources>
+	
+		<!--  <finalName>prj</finalName>-->
+>>>>>>> branch 'master' of https://github.com/2badasea/Yedam.git
 		<pluginManagement><!-- lock down plugins versions to avoid using Maven 
 				defaults (may be moved to parent pom) -->
 			<plugins>

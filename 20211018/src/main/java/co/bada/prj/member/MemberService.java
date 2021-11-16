@@ -6,10 +6,13 @@ public interface MemberService {
 	List<MemberVO> memberList();
 
 	MemberVO memberSelect(MemberVO vo);
+	MemberVO loginCheck(MemberVO vo);
 
 	int memberInsert(MemberVO vo);
 
 	int memberUpdate(MemberVO vo);
 
 	int memberDelete(MemberVO vo);
+	
+	int memberSelf(MemberVO vo);
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="db.properties" />
+	<!-- properties는 xml에서의 일종의 변수를 설정하는 속성이다. 변수명이 resource, 그 값이 db.properties라는 뜻. -->
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+      	<!-- 우항의 value값들은 db.properties에 있는 값들이랑 같아야 한다.  -->
+        <property name="driver" value="${driver}"/>  
+        <property name="url" value="${url}"/>
+        <property name="username" value="${user}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <mapper resource="co/bada/prj/member/service/member-map.xml"/>
+  </mappers>
+</configuration>

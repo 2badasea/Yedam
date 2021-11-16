@@ -14,10 +14,14 @@ import co.bada.prj.book.serviceimpl.BookInsert;
 import co.bada.prj.book.serviceimpl.BookSelect;
 import co.bada.prj.book.serviceimpl.BookSelectList;
 import co.bada.prj.book.serviceimpl.BookUpdate;
+import co.bada.prj.member.MemberService;
+import co.bada.prj.member.MemberVO;
 import co.bada.prj.member.serviceimpl.MemberDelete;
 import co.bada.prj.member.serviceimpl.MemberInsert;
 import co.bada.prj.member.serviceimpl.MemberList;
 import co.bada.prj.member.serviceimpl.MemberSelect;
+import co.bada.prj.member.serviceimpl.MemberSelf;
+import co.bada.prj.member.serviceimpl.MemberServiceImpl;
 import co.bada.prj.member.serviceimpl.MemberUpdate;
 
 public class Menu {
@@ -40,6 +44,7 @@ public class Menu {
 		map.put("bookInsert", new BookInsert());
 		map.put("bookUpdate", new BookUpdate());
 		map.put("bookDelete", new BookDelete());
+		map.put("memberSelf", new MemberSelf());
 	}
 	
 	private void menu() {
@@ -57,7 +62,10 @@ public class Menu {
 				bookManagement();
 				break;
 			case 4 :
-				System.out.println("프로그램을 종료합니다.");
+				selfManagement();
+				break;
+			case 5 :
+				System.out.println("첫 화면으로 돌아갑니다.");
 				return;
 				//return은 메소드를 종료하면서 메소드의 리턴값을 보내고 싶을 때 사용.
 				//리턴값이 void인 메소드라면 return만 쓰면 된다.
@@ -65,6 +73,12 @@ public class Menu {
 				System.out.println("잘못된 키를 입력하였습니다.");
 			}
 		}
+	}
+
+	private void selfManagement() {   //개인정보수정기능. 수정 또는 회원탈퇴. 
+		executeRun("memberSelf");
+		
+		
 	}
 
 	private void memberManagement() {
@@ -193,10 +207,11 @@ public class Menu {
 
 	private void mainMenu() {
 		System.out.println("==================");
-		System.out.println("=== 1. 멤버 관리 ===");
+		System.out.println("=== 1. 회원 관리 ===");
 		System.out.println("=== 2. 공지 관리 ===");
 		System.out.println("=== 3. 게시글 관리===");
-		System.out.println("====4. 종    료 ====");
+		System.out.println("=== 4. 개인정보 수정==");
+		System.out.println("====5. 종    료 ====");
 		System.out.println("==================");
 		System.out.println("작업번호를 입력하세요");
 		
@@ -218,6 +233,37 @@ public class Menu {
 	public void run() {
 		init();
 		menu();
+	}
+
+	public void join() {
+		MemberService dao = new MemberServiceImpl();
+		MemberVO vo = new MemberVO();
+		
+		System.out.println("회원등록을 시작하겠습니다.");
+		
+		System.out.println("ID를 입력하세요");
+		vo.setId(scn.nextLine());
+		System.out.println("이름을 입력하세요");
+		vo.setName(scn.nextLine());
+		System.out.println("비밀번호를 입력하세요");
+		vo.setPassword(scn.nextLine());
+		System.out.println("연락처를 입력하세요");
+		vo.setTel(scn.nextLine());
+		System.out.println("주소를 입력하세요");
+		vo.setAddress(scn.nextLine()); 
+		System.out.println("권한을 입력하세요(user)");
+		vo.setAuthor(scn.nextLine());
+		
+		int n = dao.memberInsert(vo); 
+		//성공했으면 n의 값은 1이다. 
+		
+		if(n !=0) {
+			System.out.println("정상적으로 등록되었습니다.");
+		} else {
+			System.out.println("실패했습니다.");
+		}
+		
+		
 	}
 	
 	

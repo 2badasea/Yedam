@@ -7,10 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<<<<<<< HEAD
 
 <h1>
 <% request.setCharacterEncoding("utf-8"); %>
 	<%= request.getParameter("msg") %>
 </h1>
+=======
+<%request.setCharacterEncoding("utf-8"); %>
+	<%= request.getParameter("msg") %>
+>>>>>>> branch 'master' of https://github.com/2badasea/Yedam.git
 </body>
 </html>

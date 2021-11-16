@@ -21,8 +21,9 @@ public class MemberUpdate implements Command {
 		vo = dao.memberSelect(vo);
 
 		if (vo != null) {  //관리자의 경우, 일반USER의경우는 권한수정x, >>> if, else if, else구문.
-			if (vo.getName().equals(GB.NAME) || GB.NAME.equals("이바다")) {
+			if (GB.AUTHOR.equals("ADMIN")) {
 				vo.toString();
+				
 				System.out.println("수정할 이름을 입력하세요");
 				vo.setName(scn.nextLine());
 				System.out.println("수정할 비밀번호를 입력하세요");
@@ -33,7 +34,7 @@ public class MemberUpdate implements Command {
 				vo.setAddress(scn.nextLine());
 				System.out.println("수정할 권한을 입력하세요.");
 				vo.setAuthor(scn.nextLine());
-
+					
 				int n = dao.memberUpdate(vo);
 				String message = (n != 0) ? "수정 성공" : "수정 실패";
 				System.out.println(message);
