@@ -1,7 +1,5 @@
 package co.bada.prj.comm;
 
-import java.net.http.HttpResponse;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

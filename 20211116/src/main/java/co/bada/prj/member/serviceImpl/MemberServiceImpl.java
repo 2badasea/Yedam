@@ -10,7 +10,7 @@ import co.bada.prj.member.service.MemberService;
 import co.bada.prj.member.service.MemberVO;
 
 public class MemberServiceImpl implements MemberService {
-	// sql세션객체부터 생성. 
+	// datasource가 가지고 있는 getDataSource 불러들이는 sqlsession 객체 생성. 
 	private SqlSession sqlSession = DataSource.getDataSource().openSession(true); //true는 auto commit
 	private MemberMapper map = sqlSession.getMapper(MemberMapper.class); 
 	
