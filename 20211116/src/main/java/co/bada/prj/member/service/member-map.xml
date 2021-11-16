@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.bada.prj.member.service.MemberMapper">
+											<!-- MeberMapper 클래스명을 적어주는 거 중요. -->
+	<select id="memberSelectList" resultType="co.bada.prj.member.service.MemberVO">
+		SELECT * FROM MEMBER
+	</select>
+	
+	
+	<select id="memberSelect" resultType="co.bada.prj.member.service.MemberVO">
+		SELECT * FROM MEMBER 
+		WHERE ID = #{id}
+		<if test="password != null">  <!-- 로그인 체크시 활용 -->
+			AND PASSWORD = #{password}
+		</if>  
+	</select>
+	
+	
+	<insert id="memberInsert" parameterType="co.bada.prj.member.service.MemberVO">
+		INSERT INTO MEMBER 
+		VALUES(#{id}, #{password}, #{name}, #{tel}, #{address}, #{author})  <!-- db의 칼럼명과 일치해야 한다. -->
+	</insert>
+	
+	
+	<delete id="memberDelete" parameterType="co.bada.prj.member.service.MemberVO">
+		DELETE FROM MEMBER WHERE ID = #{id}
+	</delete>
+	
+	
+	<update id="memberUpdate" parameterType="co.bada.prj.member.service.MemberVO">
+		UPDATE MEMBER SET PASSWORD=#{password}, NAME=#{name}, TEL=#{tel},
+		 ADDRESS=#{address}, AUTHOR=#{author}
+		 WHERE ID = #{id}
+	</update>
+	
+	
+	<select id="memberIdCheck" resultType="boolean">
+		SELECT IF(COUNT(*)=1, 1,0)  <!-- 아이디가 존재하면 1이 리턴 >>> true를 의미. 아니면 0 >>>false가 리턴.-->
+		FROM MEMBER
+		WHERE ID=#{id} 
+	</select>
+
+
+
+</mapper>
