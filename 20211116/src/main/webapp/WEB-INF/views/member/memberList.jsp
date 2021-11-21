@@ -11,8 +11,10 @@
 <jsp:include page="../home/header.jsp" />
 <div align="center">
 	<div><h1>멤 버 목 록</h1></div>
+			<!-- members는 MemberList클래스에서 정의되어 있는 것. 찾아보기 -->
 	<c:forEach items="${members }" var="member">  <!-- request객체가 가지고 있는 객체 members의 여러개 레코드중에 한 행(memberVO 타입)을 member라는 이름으로 읽는다~ -->
 		${member.id } : ${member.password } : ${member.name }<br>  <!--   vo객체에 있는 변수명과 똑같아야 한다.  -->
+		<!-- 한 행을 의미는 member, 한 행의 id, password, name을 출력하겠다는 것. vo객체의 변수명과 같아야 함. -->
 	</c:forEach>
 	
 	<!-- 조금 더 깔끔한 방식으로 -->

@@ -16,10 +16,7 @@ import co.bada.prj.command.LoginForm;
 import co.bada.prj.command.Logout;
 import co.bada.prj.command.MemberList;
 
-/**
- * Servlet implementation class FrontController
- */
-// @WebServlet("/FrontController")  안 사용하기 때문에, 삭제, 사용한다며 import도 해야함. web.xml에 매핑하는 방식 사용. 
+// @WebServlet(".do")  안 사용하기 때문에, 삭제, 사용한다며 import도 해야함. web.xml에 매핑하는 방식 사용. 
 public class FrontController extends HttpServlet {
 	private HashMap<String, Command> map = new HashMap<String, Command>(); //command 인터페이스를 만들어 key에 적당한 값을 반환하기 위함. 
 	private static final long serialVersionUID = 1L;
@@ -40,7 +37,7 @@ public class FrontController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 요청을 분석하고 처리하는 부분.  
 		request.setCharacterEncoding("UTF-8");  //한글 깨짐 처리 용도. 
-		String uri = request.getRequestURI();  //  URI를 구한다. 
+		String uri = request.getRequestURI();  //  URI를 구한다. URL중에서 도메인이름을 제외한 부분.
 		String contextPath = request.getContextPath();  // contextPath 구함. 
 		String page = uri.substring(contextPath.length());  // 실제 요청을 구함.  
 						// 예를들어, localhost/20211116/a.do  /a.do가 실제호출명령.  uri에서 contextPath부분인 20211116을 제외한 부분. 
@@ -52,9 +49,8 @@ public class FrontController extends HttpServlet {
 		String viewPage = command.run(request, response);   // home/home 이 리턴되서 viewPage에 담긴다.
 			
 		//WEB-INF에 접근할 수 있도록 viewResolve를 만듬. 서버에서 접근하기 때문에 접근 가능. 
-		
 		if(!viewPage.endsWith(".do")) {  // "해당 문자열의 마지막에 .do 가 포함되어 있지 않다면(!)~" 
-			viewPage = "WEB-INF/views/" + viewPage + ".jsp";  //WEB-INF/views/home/home.jsp  
+			viewPage = "WEB-INF/views/" + viewPage + ".jsp";  //WEB-INF/views/home/home.jsp 가 viewPage의 값.  
 		} 
 		
 		//클라이언트가 볼 수 있도록 응답처리를 하는 부분. 

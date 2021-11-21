@@ -18,21 +18,21 @@
 	}
 
 	function idCheck() { // 아이디 중복체크 
-		var id = $('#id').val();
+		var id = $('#id').val();  //jquery val()메소드. html폼 요소의 value속성 값을 가져옴 >>> id값이 'id'인 텍스트 필드의 값을 가져옴.
 		if (!CheckEmail(id)) { // 입력된 아이디가 이메일 형식인지 체크 
 			alert('Email을 입력하세요.');
-			$('#id').val("");
-			$("#id").focus();
+			$('#id').val("");		 // id속성값의 필드에 공백으로 지워주는 역할. 
+			$("#id").focus();  // id속성값의 공간에 커서를 위치시켜준다. 
 			return;
 		}
 
 		$.ajax({
-			url : "ajaxIdCheck.do",
-			type : "post",
-			data : {
+			url : "ajaxIdCheck.do",  // 접속할 페이지 주소
+			type : "post",   // 전송방식. 
+			data : {         // 서버로 보낼 데이터 
 				chkid : id
 			},
-			dataType : "text",
+			dataType : "text",		// 통신의 결과로 넘어올 데이터의 종류
 			success : function(data) {
 				if (data == '0') {
 					alert(id + "사용할 수 있는 아이디 입니다.");

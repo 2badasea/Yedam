@@ -8,10 +8,25 @@
 <title>Member List</title>
 <script src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-	function authorEdit(str){
-		var id = str;
+	// var STATUS;  // 전역변수. select 의 변경된 값을 저장
+	function authorEdit(id, status){
+		var id = id;  // form에 있는 변수 id에 담고, 
+		var author = $("#author"+status).val(); 
 		//ajax로 처리 해야 하는 부분. 
-		//권한값을 어떻게 찾을지 고민하기.
+		$.ajax({
+			url : 'ajaxAuthorUpdate.do',   // 호출명.  만들어줘야 한다. frontcontroller에. 
+			type : 'post',				// 전송방식 get,post
+			data: {id: id, author: author}, //전달할 데이터. K:V 형식으로, 앞쪽의 K가 변수명, 뒤는 값. 
+			dataType: 'text',   // 처리된 결과를 받을 데이터의 타입. (html or json, jsonp, xml 등등 string으로 받을 땐 text)
+			success : function(data){   // data에 리턴값이 담겨있다. 
+				if(data == 'yes'){   // data에 'yes' 단어가 들어오면~
+					alert(id + "님의 권한이 변경되었습니다.");
+				} else {
+					alert(id + "님의 권한변경이 실패했습니다.");
+				}
+			} 
+			//error : 안 써도 되긴 하다.  
+		});
 	}
 </script>
 </head>
@@ -35,7 +50,7 @@
 				<th width="100">권  한</th>
 				<th width="100">권한수정</th>
 			</tr>
-			<c:forEach items="${members }" var="member"> <!-- membervo 의 리스트형태인 members, 그 중에 하나의 레코드를 읽는 게 member -->
+			<c:forEach items="${members }" var="member" varStatus="status"> <!-- membervo 의 리스트형태인 members, 그 중에 하나의 레코드를 읽는 게 member -->
 				<tr onmouseover="this.style.background='#ebf7fd';"
 					onmouseleave="this.style.background='#FFFFFF';">
 					<td align="center">${member.id }</td>
@@ -43,19 +58,13 @@
 					<td align="center">${member.tel }</td>
 					<td>&nbsp;${member.address }</td>
 					<td align="center">
-						<select id="author" name="author" >
-							<c:if test="${member.author eq 'ADMIN' }">
-								<option value="ADMIN" selected="selected">ADMIN</option>
-								<option value="USER">USER</option>
-							</c:if>
-							<c:if test="${member.author eq 'USER' }">
-								<option value="ADMIN">ADMIN</option>
-								<option value="USER" selected="selected">USER</option>
-							</c:if>	
+						<select id="author${status.count }" name="author" >
+								<option value="ADMIN" <c:if test="${member.author eq 'ADMIN' }">selected</c:if>>ADMIN</option>
+								<option value="USER" <c:if test="${member.author eq 'USER' }">selected</c:if>>USER</option>
 						</select>
 					</td>
 					<td align="center">
-						<button type="button" onclick="authorEdit('${member.id }')">변경</button>
+						<button type="button" onclick="authorEdit('${member.id}','${status.count }')">변경</button>
 					</td>
 				</tr>
 			</c:forEach>

@@ -18,12 +18,12 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     		<!-- url주소가 앞에가 무엇이든 마지막에 .do로 끝나면 FrontController 를 실행하라는 뜻. 9행으로 이동되어, 그럼 10행이 시작된다.  -->
     				<!-- index.jsp에서 전달한 게 home.do, 즉 .do로 끝났었기 때문에 FrontController를 실행.  -->
     
-    
     <welcome-file-list>
     	<welcome-file>
     		index.jsp
     	</welcome-file>
     </welcome-file-list>
+    
 </web-app>
 
 

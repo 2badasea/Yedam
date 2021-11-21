@@ -16,7 +16,7 @@ public class LoginCommand implements Command {
 		//로그인을 처리하는 부분이라, 처음에 db를 갔다와야 함. 
 		MemberService memberDao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
-		HttpSession session = request.getSession();   //server가 만들어놓은 세션객체를 가져오겠다는 것. 
+		HttpSession session = request.getSession();   //server가 만들어놓은 세션객체를 가져오겠다는 것. 로그인할 때는 세션객체가 필요하기에
 		
 		vo.setId(request.getParameter("id"));   //vo객체에 담는 과정. 
 			//request객체가 가지고 있는 폼에서 넘어오는 것을 getParameter로 받는다. id값을 받기 때문에, getParameter("id")

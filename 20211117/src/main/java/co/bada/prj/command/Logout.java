@@ -13,7 +13,7 @@ public class Logout implements Command {
 		// 로그아웃 처리. 세션을 remove처리.
 		HttpSession session = request.getSession();
 		session.invalidate();
-		return "home.do";   // "home/home"으로 해도 된다. 
+		return "home.do";   // "home/home"으로 해도 된다.   어차피 똑같은 곳으로 이동된다. 
 	}
 
 }

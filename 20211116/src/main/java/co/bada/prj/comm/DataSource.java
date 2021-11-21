@@ -26,3 +26,11 @@ public class DataSource {
 		return sqlSessionFactory;
 	}
 }
+/* MyBatis3의 주요 컴포넌트의 역할
+*1. Mybatis 설정파일(mybatis-config.xml) : 데이터베이스의 접속 주소 정보나 Mapping파일의 경로 등의 고정된 환경정보를 설정한다. 
+*2. SqlSessionFactoryBuilder : MyBatis 설정 파일을 바탕으로 SqlSessionFactory를 생성한다. 
+*3. SqlSessionFactory : SqlSession 을 생성한다. 
+*4. SqlSession : 핵심적인 역할을 하는 클래스로서 SQL 실행이나 트랜잭션 관리를 실행한다. 
+*				SqlSession 오브젝트는 Thread-Safe 하지 않으므로 thread마다 필요에 따라 생성한다. 
+*5. mapping 파일(member-map.xml) : SQL문과 OR Mapping을 설정한다. 
+*/

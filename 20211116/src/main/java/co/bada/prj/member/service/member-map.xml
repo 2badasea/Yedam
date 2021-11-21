@@ -3,7 +3,7 @@
 <mapper namespace="co.bada.prj.member.service.MemberMapper">
 	<!--<mapper namespace=""> 부분의 마지막에 Mapper 클래스 명을 적어주는 게 중요.	xml파일을 만들 때 member-map 이란 이름으로 생성했기에 
 		기본값이 마지막에 member-map으로 되어 있음. 우리는 MemberMapper에 정의했기 때문에 수정해준다. 
-			그리고 sql 구문 모두 작성. 참고로 sql구문은 대문자로 한다.   -->	
+			그리고 sql 구문 모두 작성. 참고로 sql구문은 대문자로 한다. ctrl+shift+x 누르면 대문자로 변환.  -->	
 			
 	<!-- parameterType : 구문에 전달될 파라미터의 패키지 경로를 포함한 전체 클래스명이나 별칭
 			resultType : 이 구문에 의해 리턴되는 기대타입의 패키지 경로를 포함한 전체 클래스명이나 별칭. 

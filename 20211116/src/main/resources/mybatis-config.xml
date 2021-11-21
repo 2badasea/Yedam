@@ -18,6 +18,6 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="co/bada/prj/member/service/member-map.xml"/>
+    <mapper resource="co/bada/prj/member/service/member-map.xml"/>  <!-- full path 제대로 입력 -->
   </mappers>
 </configuration>

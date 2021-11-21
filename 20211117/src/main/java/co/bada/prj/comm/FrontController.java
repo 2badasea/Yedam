@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.bada.prj.command.AjaxAuthorUpdate;
 import co.bada.prj.command.HomeCommand;
 import co.bada.prj.command.Logout;
 import co.bada.prj.command.MemberDelete;
@@ -23,6 +24,9 @@ import co.bada.prj.command.MemberList;
 import co.bada.prj.command.MemberLogin;
 import co.bada.prj.command.MemberLoginForm;
 import co.bada.prj.command.MemberUpdate;
+import co.bada.prj.command.NoticeForm;
+import co.bada.prj.command.NoticeList;
+import co.bada.prj.command.NoticeResister;
 import co.bada.prj.member.service.MemberVO;
 import co.bada.prj.member.serviceImpl.MemberServiceImpl;
 
@@ -49,8 +53,11 @@ public class FrontController extends HttpServlet {
 		map.put("/memberUpdate.do", new MemberUpdate()); // 회원 정보 수정
 		map.put("/memberEditSave.do", new MemberEditSave()); // 수정 사항 저장. 
 		map.put("/memberDelete.do", new MemberDelete()); // 회원 정보 삭제.
+		map.put("/ajaxAuthorUpdate.do", new AjaxAuthorUpdate());  // 회원권한 변경)
+		map.put("/noticeForm.do", new NoticeForm());  // 공지사항 폼 호출 
+		map.put("/noticeList.do", new NoticeList());  // 공지사항 목록보기 
+		map.put("/noticeResister.do", new NoticeResister());  // 공지사항 저장
 	}
-
 	protected void service(HttpServletRequest request, HttpServletResponse response) //server는 요청이 들어오면 requset,response객체 생성. 
 			throws ServletException, IOException {
 		// 요청을 분석하고 실행할 command명령을 찾아 수행하고 결과를 돌려주는 메소드. 
@@ -72,14 +79,15 @@ public class FrontController extends HttpServlet {
 				viewPage = "WEB-INF/views/" + viewPage + ".jsp";
 			}
 		}
-		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response); // 38행의 request, response가 또 그대로 전달. 
-		
-		
-		
-		
-		
 	}
 
 }
+ /* 
+  * 요청이 오면, Servlet 클래스가 로딩되어 요청에 대한 Servlet 객체가 생성됩니다.
+  * 서버는 init() 메소드를 호출해서 Servlet을  초기화 합니다.
+  *service() 메소드를 호출해서 Servlet이 브라우저의 요청을 처리하도록 합니다.
+  *service() 메소드는 특정 HTTP 요청(GET, POST 등)을 처리하는 메서드 (doGet(), doPost() 등)를 호출합니다.
+  *서버는 destroy() 메소드를 호출하여 Servlet을 제거합니다.
+*/

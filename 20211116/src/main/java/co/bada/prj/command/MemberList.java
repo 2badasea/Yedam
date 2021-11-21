@@ -14,7 +14,7 @@ public class MemberList implements Command {
 		// 멤버 목록
 		MemberService memberDao = new MemberServiceImpl();
 		request.setAttribute("members", memberDao.memberSelectList());
-		
+		//members에 memberDao.memberselectlist결과를 담아주고, 그것을 memberlist.jsp에서 사용할 수 있다. 
 		return "member/memberList";
 	}
 
