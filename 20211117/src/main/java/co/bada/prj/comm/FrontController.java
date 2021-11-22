@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.bada.prj.command.AjaxAuthorUpdate;
+import co.bada.prj.command.AjaxFileDownLoad;
+import co.bada.prj.command.CommonFileUpload;
 import co.bada.prj.command.HomeCommand;
 import co.bada.prj.command.Logout;
 import co.bada.prj.command.MemberDelete;
@@ -26,9 +28,7 @@ import co.bada.prj.command.MemberLoginForm;
 import co.bada.prj.command.MemberUpdate;
 import co.bada.prj.command.NoticeForm;
 import co.bada.prj.command.NoticeList;
-import co.bada.prj.command.NoticeResister;
-import co.bada.prj.member.service.MemberVO;
-import co.bada.prj.member.serviceImpl.MemberServiceImpl;
+import co.bada.prj.command.NoticeRead;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -56,13 +56,18 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxAuthorUpdate.do", new AjaxAuthorUpdate());  // 회원권한 변경)
 		map.put("/noticeForm.do", new NoticeForm());  // 공지사항 폼 호출 
 		map.put("/noticeList.do", new NoticeList());  // 공지사항 목록보기 
-		map.put("/noticeResister.do", new NoticeResister());  // 공지사항 저장
+	//map.put("/noticeResister.do", new ServletApiUpload());  // 공지사항 저장   Servlet part이용 web.servlet3.1에서 multipart가 제공하지 않았음. 작동x 
+	//map.put("/noticeResister.do", new NoticeResister()); // 공지사항 저장. cos.jar이용
+		 map.put("/noticeResister.do", new CommonFileUpload()); // 공지사항 저장 common-fileUpload 
+		 map.put("/noticeRead.do", new NoticeRead()); // 공지사항 상세보기 
+		 map.put("/ajaxFileDownLoad.do", new AjaxFileDownLoad()); // 파일 다운로드 
+		
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response) //server는 요청이 들어오면 requset,response객체 생성. 
 			throws ServletException, IOException {
 		// 요청을 분석하고 실행할 command명령을 찾아 수행하고 결과를 돌려주는 메소드. 
 		request.setCharacterEncoding("utf-8"); // 한글 깨짐 방지용. 
-		String uri = request.getRequestURI();  // domanin네임을 제외한 나머지.
+		String uri = request.getRequestURI();  // domain네임을 제외한 나머지.
 		String contextPath = request.getContextPath(); // contextpath 구하기. 
 		String page = uri.substring(contextPath.length());  // /~ 만 남는다. 
 		
