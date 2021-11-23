@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+       
+<tiles-definitions>  <!-- 레이아웃 이름이 "myapp.homepage" --> 
+  <definition name="myapp.homepage" template="/WEB-INF/views/layouts/layout.jsp">
+    <put-attribute name="title" value="My Web Site" />
+    <put-attribute name="header" value="/WEB-INF/views/layouts/header.jsp" />
+    <put-attribute name="menu" value="/WEB-INF/views/layouts/menu.jsp" />
+    <put-attribute name="body" value="" />
+    <put-attribute name="footer" value="/WEB-INF/views/layouts/footer.jsp" />
+  </definition>
+  
+  
+  <!-- body에 들어갈 definition정의 extends로 위의 것을 상속하고 있음. 위에 보면 body에 value가 공백.   -->
+  <!-- 넘어오는 게 예를 들어 home/home.tiles로 들어오면,  -->  
+  <definition name="WILDCARD:*/*" extends="myapp.homepage">
+  	<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"/> <!-- home/home의 경우 첫 번째 home이 {1}, 두 번째가 {2}  -->
+  </definition>
+</tiles-definitions>

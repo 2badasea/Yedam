@@ -16,9 +16,11 @@
 <script src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	function fileDown(){
-		var ofile = $("#fileName").val();   // 읽을 때의 변수. 
-		var pfile = $("#pfileName").val();
-		$.ajax({
+//		var ofile = $("#fileName").val();   // 읽을 때의 변수. 
+//		var pfile = $("#pfileName").val();
+		frm.action ="AjaxFiledown";
+		frm.submit();
+/*	 $.ajax({
 			url: "ajaxFileDownLoad.do",
 			type: "post",
 			data: {fileName:ofile, pfileName:pfile},  // request객체로 넘어갔을 때의 변수. 
@@ -31,7 +33,7 @@
 			error: function(){
 				alert("파일 다운로드 실패!!!");
 			}
-		});
+		});    */
 	}
 </script>
 
@@ -73,7 +75,7 @@
 		</table>
 	</div> <br>
 	<div> <!-- hidden form tag -->
-		<form>
+		<form id="frm" method="post"> <!-- Ajax로 처리함 -->
 			<input type="hidden" id="fileName" name="fileName" value="${notice.fileName }">  <!-- 원본파일명 -->
 			<input type="hidden" id="pfileName" name="pfileName" value="${notice.pfileName }"> <!-- 물리파일명 -->
 			<button type="button" onclick="history.back()">목록가기</button>

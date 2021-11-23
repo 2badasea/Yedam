@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.bada.prj.command.AjaxAuthorUpdate;
-import co.bada.prj.command.AjaxFileDownLoad;
 import co.bada.prj.command.CommonFileUpload;
 import co.bada.prj.command.HomeCommand;
 import co.bada.prj.command.Logout;
@@ -60,7 +59,7 @@ public class FrontController extends HttpServlet {
 	//map.put("/noticeResister.do", new NoticeResister()); // 공지사항 저장. cos.jar이용
 		 map.put("/noticeResister.do", new CommonFileUpload()); // 공지사항 저장 common-fileUpload 
 		 map.put("/noticeRead.do", new NoticeRead()); // 공지사항 상세보기 
-		 map.put("/ajaxFileDownLoad.do", new AjaxFileDownLoad()); // 파일 다운로드 
+	//	 map.put("/ajaxFileDownLoad.do", new AjaxFileDownLoad()); // 파일 다운로드 >>> 의미가 ㅇ벗어져서 별도로 servlet을 생성해서 다 운로드 해결. 원래는 command도 생성햇엇음.
 		
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response) //server는 요청이 들어오면 requset,response객체 생성. 
@@ -78,7 +77,10 @@ public class FrontController extends HttpServlet {
 		if(!viewPage.endsWith(".do")) {
 			if(viewPage.startsWith("ajax:")) {  // ajax 처리 
 				response.setContentType("text/html; charset=UTF-8");
-				response.getWriter().append(viewPage.substring(5));
+//				response.getWriter().append(viewPage.substring(5));
+				response.getOutputStream().print(viewPage.substring(5));
+				response.getOutputStream().flush();
+				response.getOutputStream().close();
 				return; // return하면 호출한 페이지로 바로 날아간다. 밑으로 안 감.
 			} else {
 				viewPage = "WEB-INF/views/" + viewPage + ".jsp";
