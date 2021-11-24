@@ -13,6 +13,7 @@ public class AjaxAuthorUpdate implements Command {
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		// member-map.xxml에 보면, memberauthoraupdate쿼리에 권한값과 id값을 넘기는 것을 확인.
+		// 현재 memberList.jsp에서 ajax호출로 id값과 author값을 받은 상황임.
 		MemberService memberDao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
 		vo.setId(request.getParameter("id"));  //ajax에서 id로 실었엇음.

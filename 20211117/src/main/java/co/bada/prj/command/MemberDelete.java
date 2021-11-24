@@ -13,7 +13,7 @@ public class MemberDelete implements Command {
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
-		// 회원 정보 삭제. 
+		// 회원 정보 삭제.    db테이블에서 먼저 지워주는 과정을 거치고, session도 invalidate()해버린다.
 		HttpSession session = request.getSession();
 		MemberService memberDao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();

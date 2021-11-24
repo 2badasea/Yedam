@@ -10,7 +10,7 @@
 <script type="text/javascript">
 	// var STATUS;  // 전역변수. select 의 변경된 값을 저장
 	function authorEdit(id, status){
-		var id = id;  // form에 있는 변수 id에 담고, 
+		var id = id;  // form에 있는 변수 id에 담고,  우항의 id는 ${member.id} authorEdit()의 매개값에 해당한다. 
 		var author = $("#author"+status).val(); 
 		//ajax로 처리 해야 하는 부분. 
 		$.ajax({

@@ -47,10 +47,10 @@ public class FrontController extends HttpServlet {
 		map.put("/memberList.do", new MemberList());  // 멤버 목록 
 		map.put("/memberJoinForm.do", new MemberJoinForm());  // 회원가입 폼 호출. 
 		map.put("/ajaxIdCheck.do", new MemberIdCheck()); // 아이디 중복 체크
-		map.put("/memberJoin.do", new MemberJoin()); // 회원가입 처리.
-		map.put("/memberInfo.do", new MemberInfo()); // 회원 정보
-		map.put("/memberUpdate.do", new MemberUpdate()); // 회원 정보 수정
-		map.put("/memberEditSave.do", new MemberEditSave()); // 수정 사항 저장. 
+		map.put("/memberJoin.do", new MemberJoin()); // 회원가입 처리.   (joinForm.jsp에서 회원가입button을 누르면 실행되는 부분)
+		map.put("/memberInfo.do", new MemberInfo()); // 회원 정보   // header.jsp에  있음.
+		map.put("/memberUpdate.do", new MemberUpdate()); // 회원 정보 수정  (memberInfo.jsp에 '수정'버튼 누르면 실행되는 function()의 호출페이지
+		map.put("/memberEditSave.do", new MemberEditSave()); // 수정 사항 저장.   (memberUpdate.jsp에 잇는 btn1 function의 호출페이지)
 		map.put("/memberDelete.do", new MemberDelete()); // 회원 정보 삭제.
 		map.put("/ajaxAuthorUpdate.do", new AjaxAuthorUpdate());  // 회원권한 변경)
 		map.put("/noticeForm.do", new NoticeForm());  // 공지사항 폼 호출 

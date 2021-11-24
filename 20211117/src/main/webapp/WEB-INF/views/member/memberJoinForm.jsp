@@ -30,7 +30,7 @@
 			url : "ajaxIdCheck.do",  // 데이터를 전송할 페이지를 설정. 
 			type : "post",   // 전송방식. 
 			data : {         // 서버로 보낼 데이터 
-				chkid : id
+				chkid : id   // chkid는 밑의 아이디입력공간의 <button> 태그의 id값이고, 오른쪽 id는 위에서 선언한 변수 var id 이다. 
 			},
 			dataType : "text",		// 통신의 결과로 넘어올 데이터의 종류
 			success : function(data) {

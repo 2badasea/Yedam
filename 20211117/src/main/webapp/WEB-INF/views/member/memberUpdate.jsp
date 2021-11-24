@@ -24,7 +24,7 @@
 <div align = "center">
    <div><h1>나의 정보 수정</h1></div>
    <div>
-   <form id="frm" method="post"> <!-- get이 아닌 post 로 처리하기 위해 -->
+   <form id="frm" method="post"> <!-- get이 아닌 post 로 처리하기 위해.  전달되는 데이터의 중요도에 따라. -->
    <div>
       <table border="1">
          <tr>
