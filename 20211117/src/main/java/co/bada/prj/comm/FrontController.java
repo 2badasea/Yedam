@@ -62,6 +62,8 @@ public class FrontController extends HttpServlet {
 	//	 map.put("/ajaxFileDownLoad.do", new AjaxFileDownLoad()); // 파일 다운로드 >>> 의미가 ㅇ벗어져서 별도로 servlet을 생성해서 다 운로드 해결. 원래는 command도 생성햇엇음.
 		
 	}
+	
+	// view resolve 처리 영역
 	protected void service(HttpServletRequest request, HttpServletResponse response) //server는 요청이 들어오면 requset,response객체 생성. 
 			throws ServletException, IOException {
 		// 요청을 분석하고 실행할 command명령을 찾아 수행하고 결과를 돌려주는 메소드. 
@@ -69,10 +71,8 @@ public class FrontController extends HttpServlet {
 		String uri = request.getRequestURI();  // domain네임을 제외한 나머지.
 		String contextPath = request.getContextPath(); // contextpath 구하기. 
 		String page = uri.substring(contextPath.length());  // /~ 만 남는다. 
-		
 		Command command = map.get(page); // page 키값을 넣어준 것의 value값이 command에 삽입. >>> new HomeCommand()
 		String viewPage = command.run(request, response);  //service()메소드의 매개값 request, response을 그대로 이용. 
-		
 		// view resolve
 		if(!viewPage.endsWith(".do")) {
 			if(viewPage.startsWith("ajax:")) {  // ajax 처리 
