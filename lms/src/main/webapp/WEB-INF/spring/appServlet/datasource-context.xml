@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- properties file read -->
+	<context:property-placeholder location="classpath:db.properties" />  <!-- classpath: 는 src/main/resources 를 가리킨다. -->
+	
+	<!-- DBCP . connection pool 만드는 부분. 이전에 했던 datasource를 싱글톤객체로 만드는 과정과 똑같은 원리다. -->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="${driver}" />     <!-- db.properties에 변수이름을 driver로 했었음. 위에 context로 선언했기 때문에 읽기 -->
+		<property name="url" value="${url}" />
+		<property name="username" value="${user}" />
+		<property name="password" value="${password}" />
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />     <!-- ref가 참조하고 있는 건, 위의 bean의 id="dataSource"다.  -->
+		<property name="configLocation" value="classpath:config/mybatis-config.xml" />
+		<property name="mapperLocations" value="classpath*:co/bada/lms/**/service/*-map.xml" />    <!-- classpath*:  는 src/main/java 에서 찾는다.  -->
+	</bean>
+	<!-- 이정도만 해도 mybatis는 사용가능.  -->
+	
+	<!-- 더 편하게 사용하기 위해.  template이 왜 편한지 알아보기. -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" />   
+	</bean>
+	
+	<mybatis-spring:scan base-package="co.bada.lms"/>    <!--  22행의 map.xml을 스캔하기 위해 설정해줘야 하는 것! -->
+	
+	
+</beans>

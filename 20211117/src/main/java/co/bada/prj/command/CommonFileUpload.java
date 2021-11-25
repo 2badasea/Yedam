@@ -39,7 +39,7 @@ public class CommonFileUpload implements Command {
 		NoticeService noticeDao = new NoticeServiceImpl();
 		NoticeVO vo = new NoticeVO();
 		HttpSession session = request.getSession();
-		vo.setId((String) session.getAttribute("id")); // 세션에 저장된 아이디 값.
+		vo.setId((String) session.getAttribute("id")); // 세션에 저장된 아이디 값. // session의 리턴값은 object이기 때문에 String으로 형변환.
 		vo.setName((String) session.getAttribute("name")); // 세션에 저장된 이름 값 >>> 세션에 아이디와 이름을 담았다.
 		
 
