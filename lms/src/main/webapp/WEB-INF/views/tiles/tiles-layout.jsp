@@ -8,7 +8,8 @@
 <title><tiles:getAsString name="title"/></title>
 </head>
 <body>
-<div align="center">
+<!-- tiles-context.xml에서 보면, 레이아웃 구조가 이 jsp를 기반으로 구조를 형성하도록 설정되어 있음. -->
+<div align="center">  
 	<div>
 		<table border="1">
 			<tr>

@@ -18,19 +18,19 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	</listener>
 
 	<!-- Processes application requests -->
-	<servlet>
+	<servlet>  
 		<servlet-name>appServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/appServlet/*-context.xml</param-value>
-		</init-param>
+			<param-value>/WEB-INF/spring/*-context.xml</param-value>
+		</init-param>						<!-- DispatcherServlet가 동작 할 때 초기값으로, context.xml을 다 가지고 가라는 것. -->
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>*.do</url-pattern>
+		<url-pattern>*.do</url-pattern> <!-- .do로 끝나는 건 모두 위의 dispatcherServlet을 타게 된다. -->
 	</servlet-mapping>
 	
 	<welcome-file-list>
