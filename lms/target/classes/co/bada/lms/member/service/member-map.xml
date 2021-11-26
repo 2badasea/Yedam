@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.bada.lms.member.service.MemberMapper">
+	<select id="memberSelectList" parameterType="String" resultType="co.bada.lms.member.service.MemberVO">
+		SELECT * FROM MEMBER WHERE 
+		<if test='status == "A"'>  1 = 1 </if>  			<!-- 전체를 가져오라는 것 -->
+		<if test='status == "C"'>  STATUS = 'C' </if>   	<!--  최근에 insert된 것만 가져오는 것.  -->
+		<if test='status == "U"'> STATUS = 'U' </if>		<!--  최근에 수정이 있었던 것만 가져오는 것-->
+		<if test='status == "D"'>  STATUS = 'D' </if>   	<!-- 최근에 삭제된 것만 가져오라는 것 -->
+	</select>	<!-- ''는 char타입이고, ""은 String타입으로 저장된다. 메모리에 차지하게 되는 공간의 범위가 다름.  -->
+					<!-- 바깥과 안쪽 둘 다 ''로 하면 char타입으로 들어간다.  -->
+	
+	<select id="memberSelect" resultType="co.bada.lms.member.service.MemberVO">
+		SELECT * FROM MEMBER WHERE ID = #{id}   <!-- 검색용 -->
+		<if test="password !=null">
+			AND PASSWORD = #{password}   <!-- 로그인용. -->
+		</if> 
+	</select>
+	
+	<select id="isCheckId" parameterType="String" resultType="boolean">
+		SELECT CASE  WHEN (COUNT(*) = 1) THEN 0 ELSE 1 END 	<!-- 1은 TRUE(존재한다는 것), 0은 FALSE(존재하지 않다는 것) -->
+		FROM MEMBER
+		WHERE ID = #{id}
+	</select>
+	
+	
+	<insert id="memberInsert" parameterType="co.bada.lms.member.service.MemberVO">
+	
+	</insert>
+	
+	
+	<update id="memberDelete" parameterType="co.bada.lms.member.service.MemberVO">
+		UPDATE MEMBER SET STATUS = 'D' WHERE ID = #{id}  <!-- 실제 delete할 때 레코드를 지우는 게 아니라 상태값만 'D'로 바꾼다는 것. -->
+	</update>
+	
+	
+	<update id="memberUpdate" parameterType="co.bada.lms.member.service.MemberVO">
+	
+	</update>
+	
+	
+</mapper>

@@ -33,7 +33,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "home";  //model객체에선 return값으로 뷰페이지를 넘길 수 있다. model객체의 리턴타입이 String이니깐 ""을 사용하였다.
 	}
 	
 	@RequestMapping("/test.do")
