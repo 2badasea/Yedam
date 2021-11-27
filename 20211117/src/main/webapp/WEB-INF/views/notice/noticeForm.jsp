@@ -44,7 +44,8 @@
 						</tr>
 					</table>
 				</div>
-				<br> <input type="submit" value="저 장">&nbsp;&nbsp;&nbsp;
+				<br> 
+				<input type="submit" value="저 장">&nbsp;&nbsp;&nbsp;
 				<input type="reset" value="취 소">
 			</form>
 		</div>

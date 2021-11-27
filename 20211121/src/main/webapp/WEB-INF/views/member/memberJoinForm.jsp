@@ -7,7 +7,6 @@
 <title>회원가입 페이지</title>
 <script src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-	
 	function CheckEmail(str) {  // email check 정규식, js 정규 표현식 참고하기. 
 		var reg_email = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 		if (!reg_email.test(str)) {
@@ -16,7 +15,6 @@
 			return true;
 		}
 	}
-	
 	function idCheck() {   // 아이디 중복체크.  
 		var id = $('#id').val(); // jquery val()메소드. html폼 요소의 value속성 값을 가져옴 >>> id값이 'id'인 텍스트 필드의 값을 가져옴. 
 		if(!CheckEmail(id)) { // 입력된 아이디가 이메일 형식인지 체크. 
@@ -46,7 +44,6 @@
 			}
 		});
 	}
-	
 	function formCheck(){
 		 if($('#idchk').val() != 'Yes'){
 			 alert("아이디 중복체크를 해라");
@@ -61,12 +58,8 @@
 		 }
 		 $('#frm').submit(); 
 	}
-	
-	
-
 </script>
 </head>
-
 <body>
 <jsp:include page="../home/header.jsp" />
 <div align="center">

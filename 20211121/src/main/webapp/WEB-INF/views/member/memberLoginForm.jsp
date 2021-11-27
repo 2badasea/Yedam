@@ -6,16 +6,18 @@
 <meta charset="UTF-8">
 <title>로그인 폼</title>
 <script type="text/javascript">
-	function inputCheck(){
-		if(frm.id.value == "" ) {
-			alert("아이디를 입력하세요");
-			frm.password.focus();
-			return false;
-		}
-		frm.submit(); // 아이디, 패스워드 둘 다 통과되면 frm.submit() 실행
-		
+function inputCheck(){
+	if(frm.id.value == "") {
+		alert("아이디를 입력하세요.");
+		frm.id.focus();
+		return false;
+	} else if(frm.password.value == ""){
+		alert("패스워드를 입력하세요.");
+		frm.password.focus();
+		return false;
 	}
-
+	frm.submit();  //  " 둘 다 통과되면 frm.submit() 해라"
+}
 </script>
 </head>
 <body>

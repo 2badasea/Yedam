@@ -65,7 +65,7 @@
       <button type="button" id="btn1">저장하기</button>&nbsp;&nbsp;&nbsp;
       <button type="button" id="btn2">수정취소</button>
    </div>
-   <div>
+   <div>  	<!-- hiddem타입에 있는 데이터들은 form에 들어가 있다. frm.submit()을 하면 데이터가 넘어간다.  -->
       <input type="hidden" id="id" name="id" value="${member.id }">
       <input type="hidden" id="author" name="author" value="${member.author }">
    </div>

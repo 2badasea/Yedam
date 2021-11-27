@@ -58,7 +58,7 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeRead.do", new NoticeRead()); // 공지사항 상세보기. 
 		map.put("/noticeResister.do", new CommonFileUpload()); 
 	}
-
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		// server는 요청이 들어오면 request, response객체를 자동으로 생성한다. 
