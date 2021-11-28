@@ -6,24 +6,36 @@
 <head>
 <meta charset="UTF-8">
 <title><tiles:getAsString name="title"/></title>
+<link rel="stylesheet" href="css/menu.css">
+<style type="text/css">
+* {
+	margin: 0px;
+}
+#side {
+	background-color: rgb(51,51,51);
+	height: 100vh;
+}
+
+</style>
 </head>
 <body>
 <!-- tiles-context.xml에서 보면, 레이아웃 구조가 이 jsp를 기반으로 구조를 형성하도록 설정되어 있음. -->
-<div align="center">  
-	<div>
+<div class="container">
 		<table border="1">
 			<tr>
-				<td colspan="2"><tiles:insertAttribute name="header"/></td>
+				<td rowspan="4" width="200" id="side"><tiles:insertAttribute name="side" /></td>
 			</tr>
 			<tr>
-				<td width="20%" height="400"><tiles:insertAttribute name="side" /></td>
-				<td width="80%"><tiles:insertAttribute name="body" /></td>
+				<td width="1700" id="header"><tiles:insertAttribute name="header"/></td>
+			</tr>
+			<tr>	
+				<td height="720" id="body"><tiles:insertAttribute name="body" /></td>
 			</tr>
 			<tr>
-				<td colspan="2"><tiles:insertAttribute name="footer"/></td>
+				<td id="footer"><tiles:insertAttribute name="footer"/></td>
 			</tr>
+		
 		</table>
-	</div>
 </div>
 </body>
 </html>

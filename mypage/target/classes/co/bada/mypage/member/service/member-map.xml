@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.bada.mypage.member.service.MemberMapper">
+	<!--<mapper namespace=""> 부분의 마지막에 Mapper 인터페이스 명을 적어주는 게 중요.	xml파일을 만들 때 member-map 이란 이름으로 생성했기에 
+		기본값이 마지막에 member-map으로 되어 있음. 우리는 MemberMapper에 정의했기 때문에 수정해준다. 
+			그리고 sql 구문 모두 작성. 참고로 sql구문은 대문자로 한다.   -->	
+			
+	<!-- parameterType : 구문에 전달될 파라미터의 패키지 경로를 포함한 전체 클래스명이나 별칭
+			resultType : 이 구문에 의해 리턴되는 기대타입의 패키지 경로를 포함한 전체 클래스명이나 별칭. 
+			id는 구문을 찾기 위해 사용될 수 있는 네임스페이스내 유일한 구분자.  -->
+			
+	<select id="memberSelectList" resultType="co.bada.mypage.member.service.MemberVO">
+		SELECT * FROM MEMBER
+	</select>
+	
+	
+	<select id="memberSelect" resultType="co.bada.mypage.member.service.MemberVO">
+		SELECT * FROM MEMBER 
+		WHERE ID = #{id}
+		<if test="password != null">  <!-- 로그인 체크시 활용 -->
+			AND PASSWORD = #{password}
+		</if>  
+	</select>
+	
+	
+	<insert id="memberInsert" parameterType="co.bada.mypage.member.service.MemberVO">
+		INSERT INTO MEMBER 
+		VALUES(#{id}, #{password}, #{name}, #{tel}, #{address}, #{author})  <!-- db의 칼럼명과 일치해야 한다. -->
+	</insert>
+	
+	
+	<delete id="memberDelete" parameterType="co.bada.mypage.member.service.MemberVO">
+		DELETE FROM MEMBER WHERE ID = #{id}
+	</delete>
+	
+	
+	<update id="memberUpdate" parameterType="co.bada.mypage.member.service.MemberVO">
+		UPDATE MEMBER SET PASSWORD=#{password}, NAME=#{name}, TEL=#{tel},
+		 ADDRESS=#{address}, AUTHOR=#{author}
+		 WHERE ID = #{id}
+	</update>
+	
+	
+	<select id="memberIdCheck" resultType="boolean">
+		SELECT CASE WHEN(COUNT(*) = 1) THEN 'TRUE' ELSE 'FALSE' END  <!-- 아이디가 존재하면 1이 리턴 >>> true를 의미. 아니면 0 >>>false가 리턴.-->
+		FROM MEMBER
+		WHERE ID=#{id} 
+	</select>
+	
+	<update id="memberAuthorUpdate" parameterType="co.bada.mypage.member.service.MemberVO">
+		UPDATE MEMBER SET AUTHOR = #{author} WHERE ID = #{id}
+	</update>
+
+
+
+</mapper>
