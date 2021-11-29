@@ -28,7 +28,7 @@
 		<beans:property name="suffix" value=".jsp" />
 		<beans:property name="order" value="2"></beans:property> 
 	</beans:bean>				<!-- 타일즈를 넣으면서 order를 넣음. >>> viewresolve가 적용될 때 우선순위로 tiles를 적용. -->
-
+	
 
 	<!-- tiles 설정 viewresolver역할-->
 	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">

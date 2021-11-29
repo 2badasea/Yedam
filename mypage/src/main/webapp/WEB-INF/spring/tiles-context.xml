@@ -19,16 +19,6 @@
 	</definition>
 	
 	
-	<definition name="home.do" extends="layout-tiles">
-		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
-	</definition>
-	
-	
-	<definition name="memberJoinForm.do" extends="layout-tiles">
-		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
-	</definition>
-	
-	
 </tiles-definitions>
 
 	

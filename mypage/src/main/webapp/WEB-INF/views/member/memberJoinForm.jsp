@@ -114,6 +114,7 @@
 			</form>
 		</div>
 	</div>
+	<script src="http://code.jquery.com/jquery-latest.js"></script> 
 </body>
 </html>
 <!--  - $ajax() 메서드의 옵션 설명

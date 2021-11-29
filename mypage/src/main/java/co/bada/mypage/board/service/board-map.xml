@@ -21,7 +21,7 @@
 		<selectKey keyProperty="no"  resultType="int" order="BEFORE">
 			SELECT MAX(NO)+1 FROM BOARD  
 		</selectKey>
-		INSERT INTO NOTICE(NO, ID, NAME, WDATE, TITLE, SUBJECT)
+		INSERT INTO BOARD(NO, ID, NAME, WDATE, TITLE, SUBJECT)
 		VALUES(#{no},#{id},#{name},#{wdate},#{title}, #{subject})
 	</insert>
 	

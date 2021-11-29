@@ -15,6 +15,15 @@
 	background-color: rgb(51,51,51);
 	height: 100vh;
 }
+#header {
+	heigth: 5vh;
+}
+#body {
+	height: 80vh;
+}
+#footer {
+	height: 5vh;
+}
 
 </style>
 </head>

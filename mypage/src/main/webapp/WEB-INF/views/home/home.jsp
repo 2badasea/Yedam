@@ -7,16 +7,16 @@
 <title>Insert title here</title>
 <style type="text/css">
 div {
-	background-color: black;
+	background-color: white;
 }
 h1 {
-	color: red;
+	color: black;
 }
 </style>
 </head>
 <body>
 <div align="center">
-	<h1>홈</h1>
+	<h1>Welcome Java Study</h1>
 </div>
 </body>
 </html>

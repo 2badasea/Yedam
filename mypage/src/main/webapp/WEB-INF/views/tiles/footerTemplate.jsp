@@ -11,7 +11,7 @@
 </head>
 <body>
 <div align="center">
-<h3>나는 footer~</h3>
+
 </div>
 </body>
 </html>

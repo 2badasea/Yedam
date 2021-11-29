@@ -8,14 +8,11 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/menu.css">
 <style type="text/css">
-#topMenu {
-	padding-bottom: 10px;
-	padding-left: 400px;
-}
+
 </style>
 </head>
 <body>
- <nav id="topMenu" >
+ <nav id="topMenu">
 	   <ul>
 	           <li><a class="menuLink" href="home.do">홈</a></li>
 	           <c:if test="${empty id }">
@@ -24,8 +21,8 @@
 	           <c:if test="${not empty id }">
 	           <li><a class="menuLink" href="logout.do">로그아웃</a></li>
 	           </c:if>
-	           <li><a class="menuLink" href="noticeList.do">공지사항</a></li>
-	           <li><a class="menuLink" href="javaStudyList.do">자바</a></li>
+	           <li><a class="menuLink" href="boardList.do">공지사항</a></li>
+	           <li><a class="menuLink" href="java.do">자바</a></li>
 	           <c:if test="${not empty id }">
 	           <li><a class="menuLink" href="memberInfo.do">나의정보</a></li>
 	           </c:if>
