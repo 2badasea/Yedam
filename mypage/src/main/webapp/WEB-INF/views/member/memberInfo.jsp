@@ -7,20 +7,6 @@
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-latest.js"></script> 
 <script type="text/javascript">
-	/*	function CallProcess(n){
-		if(n == 1) {
-			frm.action = "memberUpdate.do";
-		} else {
-			var str = confirm("정말 회원탈퇴를 원하십니까? \n 다시 한번 생각해보세요..")
-			if(str)  // str이 boolean값임. 
-				frm.action = "memberDelete.do";
-				else 
-					return false;
-		}
-		
-		frm.submit();   // 무슨 의미?? 
-	}
-	 */
 
 	$(function() {
 		$("#btn1").click(function() {

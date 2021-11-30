@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<!-- db.properties file read 구간. db정보를 주입하라는 것. -->
+<context:property-placeholder location="classpath:db.properties"/>
+
+
+<!--  DBCP. conntion pool 설정해주는 부분. 예전 프로젝트의 datasource 객체를 싱글톤객체로 만들어주는 역할을 한다.  -->
+<!--  ${~~} 값들은 모두 db.properties에서 가져오는 값들이다.  Setter에 의한 의존주입 -->
+<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+	<property name="driverClassName" value="${driver}" /> 
+	<property name="url" value="${url}" />
+	<property name="username" value="${user}" />
+	<property name="password" value="${password}" /> 
+</bean>
+
+
+<!-- id같과 class이름의 sqlSessionFactory 부분 철자 틀리지 않게. -->
+<!-- ref가 참조하고 있는 건, 위의 bean의 id="dataSource"다.  -->
+<!-- 참조하는 건 ref, 값을 설정하는 건 value -->
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="dataSource" />     
+	<property name="configLocation" value="classpath:mybatis-config.xml" />
+	<property name="mapperLocations" value="classpath*:co/bada/prj/**/service/*-map.xml" />   
+</bean>
+<!-- 이정도만 해도 mybatis는 사용가능. classpath*:  는 src/main/java 에서 찾는다.  -->
+
+<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+	<constructor-arg ref="sqlSessionFactory" /> 
+	<!-- 해당 클래스를 id=""의 이름으로 설정하고 ref참조한다고 생각하면 됨. 일종의 별칭. -->
+</bean>
+
+<mybatis-spring:scan base-package="co.bada.prj"/>
+<!--  map.xml을 스캔하기 위해 설정해줘야 하는 것! -->
+
+
+</beans>

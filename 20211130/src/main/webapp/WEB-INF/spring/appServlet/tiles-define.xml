@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+       
+	<tiles-definitions>
+	
+	<!-- main layout   name=은 프로젝트명 이름. 관리자용 레이아웃. -->   
+	<definition name="shopadmin.project" template="/WEB-INF/views/layouts/adminlayout.jsp">
+		<put-attribute name="atitle" value="MY Shop Admin" />
+		<put-attribute name="sidemenu" value="/WEB-INF/views/layouts/adminmenu.jsp" />
+		<put-attribute name="abody" value="" />
+		<put-attribute name="afooter" value="/WEB-INF/views/layouts/adminfooter.jsp" />
+	</definition>
+	
+	<!-- 관리자용 페이지 -->
+	<!-- controller에서 return값으로 admin/~/~ 형태로 오면 해당 값이 무조건 tiles의 body섹션에 출력된다. -->
+	<definition name="admin/*" extends="shopadmin.project">
+		<put-attribute name="abody" value="/WEB-INF/views/admin/{1}.jsp" />
+	</definition>
+	
+	
+	<!-- main layout   name=은 프로젝트명 이름으 렂ㄱ자.  사용자요 레이아우 -->   
+	<definition name="shop.project" template="/WEB-INF/views/layouts/layout.jsp">
+		<put-attribute name="title" value="MY SHOP" />
+		<put-attribute name="header" value="/WEB-INF/views/layouts/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/layouts/footer.jsp" />
+	</definition>
+	
+	<!-- 일반 페이지 -->
+	<definition name="*/*" extends="shop.project">
+		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />	
+	</definition>	
+	
+	
+</tiles-definitions>
