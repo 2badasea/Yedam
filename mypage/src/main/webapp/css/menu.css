@@ -4,7 +4,7 @@
         height: 100px; 
         width: 850px; 
         padding-bottom: 10px;
-		padding-left: 400px;
+		padding-left: 300px;
 		text-align: center;
 }
 #topMenu ul li {                      
@@ -27,6 +27,6 @@
         
 }
 #topMenu .menuLink:hover {           
-        color: red;                  
+        color: rgb(133,133,133);                  
         background-color: #4d4d4d;   
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.bada.mypage.java.service.JavaMapper">
+	
+	<select id="javaSelectList" resultType="co.bada.mypage.java.service.JavaVO">
+		SELECT * FROM JAVA
+	</select>
+	
+	
+	<select id="javaSelect" resultType="co.bada.mypage.java.service.JavaVO">
+		SELECT * FROM JAVA WHERE NO = #{no}
+	</select>
+	
+	
+	<select id="javaSearchList"  parameterType="String"  resultType="co.bada.mypage.java.service.JavaVO">
+		SELECT * FROM JAVA 
+		WHERE SUBJECT LIKE '%'|| %{searchKey} ||'%'
+	</select>
+	
+	
+	<insert id="javaInsert" parameterType="co.bada.mypage.java.service.JavaVO">
+		<selectKey keyProperty="no"  resultType="int" order="BEFORE">
+			SELECT MAX(NO)+1 FROM JAVA 
+		</selectKey>
+		INSERT INTO JAVA(NO, ID, NAME, WDATE, TITLE, SUBJECT)
+		VALUES(#{no},#{id},#{name},#{wdate},#{title}, #{subject})
+	</insert>
+	
+	<update id="javaUpdate" parameterType="co.bada.mypage.java.service.JavaVO">
+		UPDATE JAVA
+		<set>
+			<if test="id !=null">ID = #{id}</if>   <!-- 널값이 넘어오면 변경하지 말고~ --> 
+			<if test="name !=null">NAME = #{name}</if>  <!-- vo객체필드이름, 칼럼이름, vo객체이름 -->
+			<if test="wdate !=null">WDATE = #{wdate}</if>
+			<if test="title !=null">TITLE = #{title}</if>
+			<if test="subject !=null">SUBJECT = #{subject}</if>
+		</set>
+		WHERE NO = #{no}
+	</update>
+	
+	<delete id="javaDelete" parameterType="co.bada.mypage.java.service.JavaVO">
+		DELETE FROM JAVA WHERE NO = #{no}
+	</delete>
+
+</mapper>

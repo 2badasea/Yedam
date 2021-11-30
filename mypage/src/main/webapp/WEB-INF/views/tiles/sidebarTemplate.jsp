@@ -14,16 +14,15 @@
 		}
 		
 		#top_mark_image {
-			padding-top: 20px;
+			position: absolute;
+			top:1px;
 		}
 	</style>
 </head>
 
 <body> 
-<div id="top_mark">
-	<div id="top_mark_image">
-		<img alt="JAVA" src="img/java.png" width="100px" height="100px">
-	</div>
+<div id="top_mark_image">
+	<img alt="JAVA" src="img/java.png" width="200px" height="200px">
 </div>
 
 

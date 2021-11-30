@@ -16,7 +16,7 @@ h1 {
 </head>
 <body>
 <div align="center">
-	<h1>Welcome Java Study</h1>
+	<h1>Welcome To JAVA Study</h1>
 </div>
 </body>
 </html>

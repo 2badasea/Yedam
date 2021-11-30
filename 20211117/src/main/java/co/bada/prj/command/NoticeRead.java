@@ -18,6 +18,7 @@ public class NoticeRead implements Command {
 //		vo = noticeDao.noticeSelect(vo); 밑의 방식으로 해도 됨. 
 		request.setAttribute("notice", noticeDao.noticeSelect(vo));  // 알아서 형 변환됨 
 		return "notice/noticeRead";
+		
 	}
 
 }

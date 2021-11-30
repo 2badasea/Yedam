@@ -22,7 +22,7 @@
 	           <li><a class="menuLink" href="logout.do">로그아웃</a></li>
 	           </c:if>
 	           <li><a class="menuLink" href="boardList.do">공지사항</a></li>
-	           <li><a class="menuLink" href="java.do">자바</a></li>
+	           <li><a class="menuLink" href="javaList.do">자바학습</a></li>
 	           <c:if test="${not empty id }">
 	           <li><a class="menuLink" href="memberInfo.do">나의정보</a></li>
 	           </c:if>

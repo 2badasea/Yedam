@@ -16,12 +16,15 @@
 	height: 100vh;
 }
 #header {
+	background-color: rgb(51,51,51);
 	heigth: 5vh;
 }
 #body {
 	height: 80vh;
+	background-color: rgb(214,214,214);
 }
 #footer {
+background-color: rgb(51,51,51);
 	height: 5vh;
 }
 
