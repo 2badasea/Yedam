@@ -24,13 +24,14 @@
 <link rel="stylesheet" href="resources/css/owl.carousel.min.css" type="text/css">
 <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="resources/css/style.css" type="text/css">
-</head>
+<link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
+<script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
 
-<body>
-<tiles:insertAttribute name="header" />
-<tiles:insertAttribute name="body" />
-<tiles:insertAttribute name="footer" />
-<!-- Js Plugins -->
+
+
+
+</head>
+<!-- Js Plugins -->  <!-- 먼저 동작시키기 위로 이동 -->
     <script src="resources/js/jquery-3.3.1.min.js"></script>
     <script src="resources/js/bootstrap.min.js"></script>
     <script src="resources/js/jquery.nice-select.min.js"></script>
@@ -39,4 +40,11 @@
     <script src="resources/js/mixitup.min.js"></script>
     <script src="resources/js/owl.carousel.min.js"></script>
     <script src="resources/js/main.js"></script>
+
+<body>
+<tiles:insertAttribute name="header" />
+<tiles:insertAttribute name="body" />
+<tiles:insertAttribute name="footer" />
+
+    
    </body>
