@@ -12,6 +12,12 @@
 		alert(frm.no.value);
 		frm.submit();
 	}
+	
+	function insertTest() {
+		frm2.no.value = str; 
+		alert(frm.no.value);
+		frm.submit();
+	}
 
 </script>
 <style type="text/css">
@@ -54,6 +60,7 @@ div>div>h1 {
 	</div><br>
 	<div>
 		<c:if test="${not empty id }">
+			<!--  <button type="button" onclick="location.href='javaForm.do'">글쓰기</button>-->
 			<button type="button" onclick="location.href='javaForm.do'">글쓰기</button>
 		</c:if>
 	</div>

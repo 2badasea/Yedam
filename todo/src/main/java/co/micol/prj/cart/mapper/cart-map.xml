@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.prj.cart.mapper.CartMapper">
+<!-- 전체조회 --> 
+<select id="cartSelectList" 
+        resultType="cartVO">
+	SELECT *
+	  FROM CART
+	 ORDER BY NO  
+</select>
+
+<delete id="cartDeleteAll">
+	DELETE FROM CART 
+</delete>
+
+<delete id="cartDelete">
+	DELETE CART 
+	 WHERE NO = #{no} 
+</delete>
+
+</mapper>
