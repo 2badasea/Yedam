@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller
+@Controller 
 public class MemberController {
 	
 	@GetMapping("/memberList.do")  // 호출명
@@ -13,5 +13,5 @@ public class MemberController {
 		return "member/memberList";  // jsp명   => 위의 호출명과 메소드명 jsp명 모두 일치시키기 
 	}
 	
-	// member 처리하는 모든 작성. 
+	// 이 컨트롤러에선 member 관련 처리하는 모든 메소드를 작성. 
 }

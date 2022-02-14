@@ -8,10 +8,9 @@
 </head>
 <body>
 <div align="center">
-	<h1>Welcome to my web site</h1>
-	<div><a href="memberList.do">Member List</a></div>
-	<h3><a href="test.do">타일즈테스트</a></h3>
+	<div>
+		<h2>타일즈 테스트를 위한 본문 페이지</h2>
+	</div>
 </div>
-
 </body>
 </html>

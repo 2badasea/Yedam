@@ -7,11 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div align="center">
-	<h1>Welcome to my web site</h1>
-	<div><a href="memberList.do">Member List</a></div>
-	<h3><a href="test.do">타일즈테스트</a></h3>
-</div>
-
+<H1>나는 footer~</H1>
 </body>
 </html>

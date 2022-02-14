@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+ 
+	
+	<!-- DBCP Pool 아래 설정되는 value값들은 db.properties를 참조. -->  
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close"> 
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="bada" />
+		<property name="password" value="1234" />
+	</bean>
+	
+	<!-- Mybatis 를 이용하기 위한 bean 등록하기  -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" /> 
+			<!-- 왼쪽은 name은 속성명이고, 오른쪽은 위를 참조한다는 것.  -->
+		<property name="configLocation" value="classpath:config/mybatis-config.xml" /> 
+			<!-- 마이바티스 환경설정파일의 위치.  classpath: 는 src/main/resources를 의미 -->
+		<property name="mapperLocations" value="classpath*:co/bada/hello/**/service/*-map.xml" /> 
+			 <!-- mapper파일들의 위치. classpath*: 는 src/main/java 들을 의미함 -->
+	</bean>	
+	
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" />
+	</bean>
+	
+	<mybatis-spring:scan base-package="co.bada.hello"/> <!-- 위에 설정한 것들을 찾기 위해 여기 전체를 스캔하게 된다.  -->
+
+
+	
+</beans>

@@ -40,4 +40,9 @@ public class HomeController {
 //		return "member/memberList";
 //	}
 	
+	@RequestMapping("/test.do")
+	public String test() {
+		return "test/test";
+	}
+	
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 
+<tiles-definitions>
+	<!-- main layout -->
+	<!-- 'name'은 변수처럼 사용할 이름을 지정하고, template은 사용할 jsp를 지정한다. 이 템플릿 구조의 이름이 layout-tiles 이다. -->
+	<definition name="layout-tiles" template="/WEB-INF/views/tiles/tiles-layout.jsp">
+		<put-attribute name="title" value="MyHome" />
+		<put-attribute name="header" value="/WEB-INF/views/tiles/headerTemplate.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/tiles/sidebarTemplate.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/tiles/footerTemplate.jsp" />
+	</definition>
+	
+	<!-- 본문 페이지 -->
+	<definition name="*/*" extends="layout-tiles">
+		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" /> 
+		 <!-- 이런 형태로 들어오는 것들은 무조건 layout-tiles 타일즈를 타도록. "home/home"이 리턴된다면 해당 레이아웃의 body영역에 페이지가 출력된다고 생각하면 된다.  -->
+	</definition>
+</tiles-definitions>
